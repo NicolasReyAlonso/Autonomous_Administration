@@ -20,6 +20,7 @@
 
 # --- PyTorch + Hugging Face (en ambas máquinas) ---
 torch==2.15.0
+torchvision==0.29.1   # el procesador de Gemma 4 lo exige aunque solo uses texto
 transformers==5.23.0
 peft==0.22.0
 trl==1.18.2
