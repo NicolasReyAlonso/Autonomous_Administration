@@ -34,6 +34,10 @@ bitsandbytes==0.50.2; sys_platform != "darwin"
 # --- MLX (solo Mac) ---
 mlx-lm[train]==0.32.2; sys_platform == "darwin"
 
+# --- Descarga de documentos (scripts/descargar_normativa.py) ---
+requests==2.34.2
+beautifulsoup4==4.15.0
+
 # --- Herramientas ---
 tensorboard==2.21.0
 ipykernel==7.4.0

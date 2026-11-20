@@ -5,6 +5,10 @@
 __pycache__/
 *.pyc
 
+# Documentos descargados (se regeneran con scripts/descargar_normativa.py;
+# los manifiestos de data/manifests/ sí se versionan)
+data/raw/
+
 # Salidas de entrenamiento (adaptadores, checkpoints, logs, modelos fusionados)
 outputs/
 adapters/
