@@ -1,0 +1,38 @@
+# Entorno para entrenar LoRA sobre Gemma 4 E2B (PC con NVIDIA y Mac con Apple Silicon)
+#
+# Usa Python 3.12 en las dos máquinas para que el entorno sea idéntico.
+#
+#   PC Windows:  py -3.12 -m venv .venv
+#                .venv\Scripts\activate
+#                pip install -r requirements.txt
+#
+#   PC Linux / Mac:  python3.12 -m venv .venv
+#                    source .venv/bin/activate
+#                    pip install -r requirements.txt
+#
+# PyTorch: en el PC se instala la versión con CUDA 13.2 del índice de abajo.
+# En el Mac ese índice no tiene paquetes, así que pip coge la versión normal de
+# PyPI, que ya trae soporte para la GPU de Apple (MPS).
+# CUDA 13 necesita driver NVIDIA reciente (>= 580) y una gráfica RTX 20xx o
+# posterior. Con una gráfica más antigua (GTX 10xx) cambia cu132 por cu126 y
+# torch==2.15.0 por torch==2.14.1.
+--extra-index-url https://download.pytorch.org/whl/cu132
+
+# --- PyTorch + Hugging Face (en ambas máquinas) ---
+torch==2.15.0
+transformers==5.23.0
+peft==0.22.0
+trl==1.18.2
+accelerate==1.16.0
+datasets==5.2.0
+huggingface_hub==2.4.0
+
+# --- Cuantización 4 bits para QLoRA (solo PC con NVIDIA) ---
+bitsandbytes==0.50.2; sys_platform != "darwin"
+
+# --- MLX (solo Mac) ---
+mlx-lm[train]==0.32.2; sys_platform == "darwin"
+
+# --- Herramientas ---
+tensorboard==2.21.0
+ipykernel==7.4.0
