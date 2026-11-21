@@ -40,8 +40,12 @@ from urllib.robotparser import RobotFileParser
 import requests
 from bs4 import BeautifulSoup
 
-USER_AGENT = "normativa-ulpgc-rag/1.0 (proyecto academico)"
+# Formato "Mozilla/5.0 (compatible; bot/versión)", como Googlebot: el cortafuegos
+# de www.ulpgc.es devuelve 403 a los User-Agent que no empiezan por "Mozilla/5.0".
+USER_AGENT = "Mozilla/5.0 (compatible; normativa-ulpgc-rag/1.0; proyecto academico)"
 DEFAULT_DELAY = 2.0  # segundos entre peticiones si robots.txt no fija Crawl-delay
+INTENTOS = 3         # ante cortes de conexión, timeouts, 429 o errores 5xx
+PAUSA_REINTENTO = 30  # segundos; se multiplica por el número de intento
 
 ULPGC = "https://www.ulpgc.es"
 EII = "https://www.eii.ulpgc.es"
@@ -85,15 +89,28 @@ class Cliente:
         if not rp.can_fetch(USER_AGENT, url):
             raise PermissionError(f"robots.txt no permite {url}")
         espera = float(rp.crawl_delay(USER_AGENT) or DEFAULT_DELAY)
-        pendiente = self.ultima.get(host, 0.0) + espera - time.monotonic()
-        if pendiente > 0:
-            time.sleep(pendiente)
-        try:
-            r = self.sesion.get(url, timeout=120)
-        finally:
-            self.ultima[host] = time.monotonic()
-        r.raise_for_status()
-        return r
+        for intento in range(1, INTENTOS + 1):
+            pendiente = self.ultima.get(host, 0.0) + espera - time.monotonic()
+            if pendiente > 0:
+                time.sleep(pendiente)
+            try:
+                r = self.sesion.get(url, timeout=120)
+                if r.status_code == 429 or r.status_code >= 500:
+                    raise requests.HTTPError(f"{r.status_code} en {url}", response=r)
+                r.raise_for_status()  # otros 4xx (p. ej. 403): no se reintenta
+                return r
+            except (requests.ConnectionError, requests.Timeout, requests.HTTPError) as e:
+                transitorio = not isinstance(e, requests.HTTPError) or (
+                    e.response is not None
+                    and (e.response.status_code == 429 or e.response.status_code >= 500))
+                if not transitorio or intento == INTENTOS:
+                    raise
+                pausa = PAUSA_REINTENTO * intento
+                print(f"    {type(e).__name__}; reintento {intento}/{INTENTOS - 1} en {pausa} s")
+                time.sleep(pausa)
+            finally:
+                self.ultima[host] = time.monotonic()
+        raise AssertionError("inalcanzable")
 
 
 # --------------------------------------------------------------------------- #
@@ -211,14 +228,22 @@ def recolectar_ulpgc(cli: Cliente, docs: dict[str, Documento]) -> None:
 
     for i, (url_tema, nombre) in enumerate(temas.items(), 1):
         print(f"ULPGC · tema {i}/{len(temas)}: {nombre}")
-        r = cli.get(url_tema)
+        try:
+            r = cli.get(url_tema)
+        except requests.RequestException as e:  # solo perdemos la etiqueta de tema
+            print(f"    AVISO: no se pudo leer el tema ({e}); se continúa")
+            continue
         for url, texto, _ in enlaces(BeautifulSoup(r.text, "html.parser"), r.url):
             if es_pdf(url) and de_ulpgc(url):
                 registrar(docs, url, "ulpgc", texto, r.url, categoria=nombre)
 
     for pagina in PAGINAS_EXTRA_ULPGC:
         print(f"ULPGC · página extra: {pagina}")
-        r = cli.get(pagina)
+        try:
+            r = cli.get(pagina)
+        except requests.RequestException as e:
+            print(f"    AVISO: no se pudo leer la página ({e}); se continúa")
+            continue
         sopa = BeautifulSoup(r.text, "html.parser")
         seccion = titulo_pagina(sopa)
         for url, texto, _ in enlaces(sopa, r.url):
