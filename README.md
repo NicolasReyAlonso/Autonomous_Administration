@@ -2,9 +2,10 @@
 
 ## Puesta en marcha en una máquina nueva
 
-Requisitos: Python 3.12 y git. En el PC, una GPU NVIDIA con su driver instalado
-(`nvidia-smi` debe funcionar). El proyecto se usa en un Mac con Apple Silicon y en
-un PC Linux con GTX 10xx; ver las notas de `requirements.txt` para otras gráficas.
+Requisitos: Python 3.12 y git. En el PC, una GPU NVIDIA RTX con driver >= 580
+(`nvidia-smi` debe mostrar `CUDA Version: 13.x`). El proyecto se usa en un Mac con
+Apple Silicon y en un PC Linux con RTX; ver las notas de `requirements.txt` si el
+driver es más antiguo o la gráfica es otra.
 
 ```bash
 # 1. Código

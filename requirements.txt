@@ -10,20 +10,19 @@
 #                    source .venv/bin/activate
 #                    pip install -r requirements.txt
 #
-# PyTorch: en el PC se instala la versión con CUDA 12.6 del índice de abajo.
-# En el Mac ese índice no tiene paquetes, así que pip coge la versión normal de
-# PyPI, que ya trae soporte para la GPU de Apple (MPS).
+# PyTorch: en el PC (NVIDIA RTX) se instala la versión con CUDA 13.2 del índice de
+# abajo. En el Mac ese índice no tiene paquetes, así que pip coge la versión normal
+# de PyPI, que ya trae soporte para la GPU de Apple (MPS).
 #
-# Por qué CUDA 12.6 y torch 2.14: el PC tiene una GTX 10xx (arquitectura Pascal).
-# Las versiones de PyTorch con CUDA 12.8/13.x ya no la soportan, y torch 2.14 es la
-# última que se publica con CUDA 12.6. Pascal no tiene bf16 y su fp16 es muy lento:
-# hay que calcular en fp32 (rag/busqueda.py lo elige solo).
-# Si algún día el PC tiene una RTX 20xx o posterior: cambia cu126 por cu132 y
-# torch==2.14.1 por torch==2.15.0 (necesita driver NVIDIA >= 580).
---extra-index-url https://download.pytorch.org/whl/cu126
+# CUDA 13.2 funciona con cualquier RTX (20xx a 50xx) pero necesita un driver NVIDIA
+# >= 580: "nvidia-smi" debe mostrar "CUDA Version: 13.x". Si el driver es más
+# antiguo y no puedes actualizarlo, en una RTX 20xx/30xx/40xx cambia cu132 por cu126
+# y torch==2.15.0 por torch==2.14.1 (las RTX 50xx necesitan CUDA 12.8 o superior).
+# Las GTX 10xx (Pascal) no funcionan con CUDA 13: necesitan cu126 + torch 2.14.1.
+--extra-index-url https://download.pytorch.org/whl/cu132
 
 # --- PyTorch + Hugging Face (en ambas máquinas) ---
-torch==2.14.1
+torch==2.15.0
 torchvision==0.29.1   # el procesador de Gemma 4 lo exige aunque solo uses texto
 transformers==5.23.0
 peft==0.22.0
