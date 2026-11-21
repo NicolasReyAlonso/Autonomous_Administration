@@ -2,7 +2,9 @@
 """Mide la calidad de las respuestas del RAG (búsqueda + Gemma) con data/eval/preguntas.jsonl.
 
 Funciona en dos fases para que LM Studio cambie de modelo una sola vez (solo mantiene uno
-cargado y cada cambio cuesta ~25 s):
+cargado y cada cambio cuesta ~25 s). Cada modelo necesita en LM Studio su GPU Offload
+guardado ("Remember settings" al cargarlo): E4B al máximo (si no, deja parte en la CPU y
+pasa de ~80 a ~17 tokens/s) y 12B por debajo del máximo (no cabe entero en 8 GB y no carga):
   1. El modelo que responde (Gemma 4 E4B) contesta todas las preguntas.
   2. Un modelo juez (por defecto Gemma 4 12B si está disponible) compara cada respuesta con
      el texto de los artículos correctos y da un veredicto: correcta / parcial /
@@ -15,6 +17,7 @@ Uso (desde la raíz del proyecto, con el venv activado y LM Studio sirviendo):
     python scripts/evaluar_respuestas.py                       # las 31 preguntas (~30 min)
     python scripts/evaluar_respuestas.py --sin-pensar          # respuestas sin razonamiento previo
     python scripts/evaluar_respuestas.py --preguntas 0 5 15    # solo algunas
+    python scripts/evaluar_respuestas.py --sin-juez            # solo responde; juzgar luego con --rejuzgar
     python scripts/evaluar_respuestas.py --rejuzgar outputs/evaluaciones/X.jsonl --juez otro-modelo
     python scripts/evaluar_respuestas.py --resumen outputs/evaluaciones/X.jsonl
 
@@ -44,7 +47,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from rag.busqueda import RAIZ, cargar_fragmentos  # noqa: E402
 from rag.responder import (K_FRAGMENTOS, MODELO_LLM, RE_CITA, URL_POR_DEFECTO,  # noqa: E402
-                           ClienteLLM, Responder, describir_fragmento)
+                           ClienteLLM, Responder, RespuestaCortada, describir_fragmento)
 from scripts.evaluar_busqueda import PREGUNTAS, es_relevante  # noqa: E402
 
 SALIDA = RAIZ / "outputs" / "evaluaciones"
@@ -160,12 +163,14 @@ def juzgar(juez: ClienteLLM, registro: dict, fragmentos: list[dict]) -> dict:
                f"Texto de referencia:\n{referencia(registro, fragmentos)}\n\n"
                f"Respuesta del asistente:\n{respuesta}")
     mensajes = [{"role": "system", "content": SISTEMA_JUEZ}, {"role": "user", "content": usuario}]
+    # Un JSON mal formado o cortado se apunta como 'error' y se sigue; un fallo del servidor
+    # (modelo que no carga, servidor caído) se propaga y para la evaluación.
     try:
         texto = "".join(t for tipo, t in juez.generar(mensajes, pensar=False, temperatura=0.0, max_tokens=600,
                                                       extra={"response_format": FORMATO_JUEZ})
                         if tipo == "respuesta")
         return json.loads(texto)
-    except (ValueError, RuntimeError) as e:
+    except (ValueError, RespuestaCortada) as e:
         return {"motivo": f"Error del juez: {e}", "veredicto": "error"}
 
 
@@ -221,6 +226,9 @@ def main() -> None:
     ap.add_argument("--url", default=URL_POR_DEFECTO, help="URL de la API compatible con OpenAI")
     ap.add_argument("--modelo", default=MODELO_LLM, help="modelo que responde (por defecto Gemma 4 E4B)")
     ap.add_argument("--juez", help="modelo juez (por defecto Gemma 4 12B, o el Gemma 4 que haya)")
+    ap.add_argument("--sin-juez", action="store_true",
+                    help="solo responde (fase 1); se juzga después con --rejuzgar. Sirve para lanzar "
+                         "varias configuraciones sin que LM Studio cambie de modelo entre medias")
     ap.add_argument("--rejuzgar", type=Path, metavar="JSONL", help="vuelve a juzgar respuestas ya guardadas")
     ap.add_argument("--resumen", type=Path, metavar="JSONL", help="solo muestra el resumen de un fichero")
     args = ap.parse_args()
@@ -242,6 +250,10 @@ def main() -> None:
             registros = responder_preguntas(responder, preguntas, indices, ruta)
             del responder
             liberar_gpu()
+            if args.sin_juez:
+                resumir(registros)
+                print(f"\nRespuestas en {ruta.relative_to(RAIZ)}; para juzgarlas: --rejuzgar {ruta.relative_to(RAIZ)}")
+                return
 
         juez = ClienteLLM(args.url, args.juez, preferencias=PREFERENCIAS_JUEZ)
     except RuntimeError as e:
@@ -252,7 +264,11 @@ def main() -> None:
     fragmentos = cargar_fragmentos()
     for n, r in enumerate(registros, 1):
         t = time.time()
-        r.update(juzgar(juez, r, fragmentos), juez=juez.modelo)
+        try:
+            r.update(juzgar(juez, r, fragmentos), juez=juez.modelo)
+        except RuntimeError as e:
+            sys.exit(f"Error: {e}\nLas respuestas están guardadas en {ruta}; "
+                     f"cuando se arregle, júzgalas con --rejuzgar {ruta}")
         guardar(ruta, registros)
         print(f"  [{n:2}/{len(registros)}] {time.time() - t:5.1f} s  {SIMBOLOS[r['veredicto']]} {r['pregunta'][:80]}",
               flush=True)

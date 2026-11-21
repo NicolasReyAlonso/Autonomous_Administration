@@ -87,6 +87,10 @@ def construir_mensajes(pregunta: str, resultados: list[Resultado]) -> list[dict]
 # --------------------------------------------------------------------------- #
 # Cliente del modelo de lenguaje (API compatible con OpenAI)
 # --------------------------------------------------------------------------- #
+class RespuestaCortada(RuntimeError):
+    """El modelo llegó a max_tokens antes de terminar."""
+
+
 class ClienteLLM:
     def __init__(self, url: str = URL_POR_DEFECTO, modelo: str | None = MODELO_LLM, timeout: int = 600,
                  preferencias: tuple[str, ...] = PREFERENCIAS_MODELO):
@@ -131,7 +135,11 @@ class ClienteLLM:
         with requests.post(f"{self.url}/chat/completions", json=cuerpo, stream=True,
                            timeout=self.timeout) as r:
             if not r.ok:
-                raise RuntimeError(f"Error {r.status_code} del servidor de modelos: {r.text[:500]}")
+                try:
+                    detalle = r.json()["error"]["message"]
+                except (ValueError, KeyError, TypeError):
+                    detalle = r.text[:500]
+                raise RuntimeError(f"Error {r.status_code} del servidor de modelos ({self.modelo}): {detalle}")
             # Sin decode_unicode: el stream no declara charset y requests lo leería como Latin-1
             for linea in r.iter_lines():
                 linea = linea.decode("utf-8")
@@ -148,7 +156,7 @@ class ClienteLLM:
                 if delta.get("content"):
                     yield "respuesta", delta["content"]
                 if opcion.get("finish_reason") == "length":
-                    raise RuntimeError(f"La respuesta superó max_tokens={max_tokens} y salió cortada")
+                    raise RespuestaCortada(f"La respuesta superó max_tokens={max_tokens} y salió cortada")
 
 
 # --------------------------------------------------------------------------- #
