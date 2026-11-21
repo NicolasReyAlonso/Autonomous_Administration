@@ -1,0 +1,19 @@
+{
+  "_comentario": "Correcciones manuales por URL (la del manifiesto). Claves: vigente (bool), motivo (str), excluir (bool: no se procesa). Los títulos que contienen 'derogado' ya se marcan como no vigentes automáticamente.",
+  "https://www.ulpgc.es/sites/default/files/ArchivosULPGC/Normativa%20y%20reglamentos/Reglamentos/normas-de-progreso-y-permanencia-ulpgc-2024.pdf": {
+    "vigente": false,
+    "motivo": "Texto original de 2024 de las Normas de Progreso y Permanencia; la versión vigente es la consolidada con la modificación del Consejo Social de 2 de abril de 2025 (publicada en csocial.ulpgc.es)."
+  },
+  "https://www.ulpgc.es/sites/default/files/ArchivosULPGC/Normativa%20y%20reglamentos/Reglamentos/reglamento_trabajo_fin_de_titulo.pdf": {
+    "vigente": false,
+    "motivo": "Reglamento General de TFT de 2014: derogado por la disposición derogatoria única del Reglamento General de TFG/TFM de 2019 ('deroga todas las disposiciones anteriores de igual o menor rango que regulen esta materia'), a su vez derogado por el Reglamento 6/2024. La web de la ULPGC no lo marca como derogado."
+  },
+  "https://www.ulpgc.es/sites/default/files/ArchivosULPGC/Normativa%20y%20reglamentos/Reglamentos/reglamento_pfc_cg_25_6_03.pdf": {
+    "vigente": false,
+    "motivo": "Reglamento de Proyectos Fin de Carrera de 2003 (titulaciones en extinción): la disposición derogatoria del Reglamento 6/2024 deroga 'cualquier otra disposición anterior de igual o menor rango que regule esta materia'. Interpretación propia: revisar si se necesita para planes antiguos."
+  },
+  "https://www.eii.ulpgc.es/document/21": {
+    "vigente": false,
+    "motivo": "Revisión 11 (2021) del Manual Operativo Interno de TFT; la vigente es la Rev. 14 (2024), publicada en la página de Normativa TFT de la EII."
+  }
+}

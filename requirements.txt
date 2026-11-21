@@ -10,16 +10,20 @@
 #                    source .venv/bin/activate
 #                    pip install -r requirements.txt
 #
-# PyTorch: en el PC se instala la versión con CUDA 13.2 del índice de abajo.
+# PyTorch: en el PC se instala la versión con CUDA 12.6 del índice de abajo.
 # En el Mac ese índice no tiene paquetes, así que pip coge la versión normal de
 # PyPI, que ya trae soporte para la GPU de Apple (MPS).
-# CUDA 13 necesita driver NVIDIA reciente (>= 580) y una gráfica RTX 20xx o
-# posterior. Con una gráfica más antigua (GTX 10xx) cambia cu132 por cu126 y
-# torch==2.15.0 por torch==2.14.1.
---extra-index-url https://download.pytorch.org/whl/cu132
+#
+# Por qué CUDA 12.6 y torch 2.14: el PC tiene una GTX 10xx (arquitectura Pascal).
+# Las versiones de PyTorch con CUDA 12.8/13.x ya no la soportan, y torch 2.14 es la
+# última que se publica con CUDA 12.6. Pascal no tiene bf16 y su fp16 es muy lento:
+# hay que calcular en fp32 (rag/busqueda.py lo elige solo).
+# Si algún día el PC tiene una RTX 20xx o posterior: cambia cu126 por cu132 y
+# torch==2.14.1 por torch==2.15.0 (necesita driver NVIDIA >= 580).
+--extra-index-url https://download.pytorch.org/whl/cu126
 
 # --- PyTorch + Hugging Face (en ambas máquinas) ---
-torch==2.15.0
+torch==2.14.1
 torchvision==0.29.1   # el procesador de Gemma 4 lo exige aunque solo uses texto
 transformers==5.23.0
 peft==0.22.0
@@ -37,6 +41,16 @@ mlx-lm[train]==0.32.2; sys_platform == "darwin"
 # --- Descarga de documentos (scripts/descargar_normativa.py) ---
 requests==2.34.2
 beautifulsoup4==4.15.0
+
+# --- Extracción de texto de PDF (scripts/procesar_normativa.py) ---
+# Licencia AGPL-3.0: sin problema para un proyecto académico; si algún día se
+# distribuye como producto cerrado, hay que cambiarla (p. ej. por pypdf).
+pymupdf==2.1
+
+# --- Búsqueda (rag/busqueda.py): embeddings + BM25 con raíces en español ---
+sentence-transformers==6.3.0
+bm25s==0.3.16
+PyStemmer==3.1.0
 
 # --- Herramientas ---
 tensorboard==2.21.0
