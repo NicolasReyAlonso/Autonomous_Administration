@@ -53,6 +53,9 @@ from scripts.evaluar_busqueda import PREGUNTAS, es_relevante  # noqa: E402
 SALIDA = RAIZ / "outputs" / "evaluaciones"
 PREFERENCIAS_JUEZ = ("gemma-4-12b", "gemma-4")
 MAX_REFERENCIA = 12_000  # caracteres (~3500 tokens): LM Studio carga el modelo con 8192 de contexto
+# El veredicto ocupa ~150 tokens, pero Gemma 4 E2B a veces razona aunque se le pida
+# reasoning_effort="none" (~650 tokens) y con 600 se cortaba antes de escribir el JSON.
+MAX_TOKENS_JUEZ = 2048
 PUNTOS = {"correcta": 1.0, "parcial": 0.5}
 SIMBOLOS = {"correcta": "✓", "parcial": "~", "incorrecta": "✗", "sin_respuesta": "∅", "error": "!"}
 
@@ -166,9 +169,9 @@ def juzgar(juez: ClienteLLM, registro: dict, fragmentos: list[dict]) -> dict:
     # Un JSON mal formado o cortado se apunta como 'error' y se sigue; un fallo del servidor
     # (modelo que no carga, servidor caído) se propaga y para la evaluación.
     try:
-        texto = "".join(t for tipo, t in juez.generar(mensajes, pensar=False, temperatura=0.0, max_tokens=600,
-                                                      extra={"response_format": FORMATO_JUEZ})
-                        if tipo == "respuesta")
+        salida = juez.generar(mensajes, pensar=False, temperatura=0.0, max_tokens=MAX_TOKENS_JUEZ,
+                              extra={"response_format": FORMATO_JUEZ})
+        texto = "".join(t for tipo, t in salida if tipo == "respuesta")
         return json.loads(texto)
     except (ValueError, RespuestaCortada) as e:
         return {"motivo": f"Error del juez: {e}", "veredicto": "error"}
