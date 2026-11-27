@@ -10,11 +10,11 @@ de ejemplo habitual).
 
 | Campo | Qué es |
 |---|---|
-| `id`, `tramite`, `ficha_sia` | Identificador, trámite y código SIA de su ficha en `data/plantillas/tramites.jsonl` |
+| `id`, `tramite`, `ficha_sia` | Identificador, trámite y código SIA de su ficha en `data/plantillas/tramites.jsonl` (`null` si no es un trámite de la sede, como la fecha alternativa de examen) |
 | `variante_de` | (Opcional) Caso del que sale este cambiando un solo dato: los dos forman un par que debe resolverse distinto |
 | `notas_caso` | Qué pone a prueba el caso (no se le pasa al modelo) |
 | `instancia` | Lo que presenta el interesado. Copia los campos de la Instancia General de la sede y del formulario en papel (`data/plantillas/aportados/instancia_general_ulpgc_2009.pdf`): solicitante, medio de notificación, procedimiento, órgano al que se dirige, asunto, fecha de presentación, `expone`, `solicita`, documentación aportada y si está firmada |
-| `expediente` | Datos que ya tiene la ULPGC y que el interesado no tiene que aportar (art. 28.2 de la Ley 39/2015): titulación, créditos, asignaturas pendientes con sus convocatorias, matrícula, nota media, compensaciones previas |
+| `expediente` | Datos que ya tiene la ULPGC y que el interesado no tiene que aportar (art. 28.2 de la Ley 39/2015). Depende del trámite: titulación, créditos, asignaturas pendientes con sus convocatorias, nota media y compensaciones previas; el calendario oficial de pruebas (fecha alternativa); o los grupos de destino con sus plazas libres (cambio de grupo) |
 | `informes` | Actos de instrucción, por ejemplo el informe del coordinador de la asignatura (art. 7 del Reglamento de compensación de la EII) |
 | `gold.decision` | `estimar`, `desestimar`, `requerir_subsanacion` o `inadmitir` |
 | `gold.norma_aplicable` | Normas que rigen el caso y **por qué esas** (la fecha de presentación decide) |
@@ -96,17 +96,67 @@ asignaturas salvo PE y TFG.
 | comp-009 | 2027-01-13 | estimar | Termodinámica con el 1/2026; no se exige 1.º y 2.º ni informe |
 | comp-010 | 2027-01-13 | desestimar | Par de comp-009 con solo dos convocatorias (art. 4.3) |
 
-## Fecha alternativa de examen
+## Fecha alternativa de examen (`fecha_alternativa/`)
 
 No es un trámite de la sede. Se modela como petición del estudiante al profesorado,
-según el art. 58 del Reglamento de Régimen Interno de la EII:
+según el art. 58 del Reglamento de Régimen Interno de la EII (y el art. 24 del Reglamento de
+Evaluación de la ULPGC):
 - hay derecho si dos pruebas finales coinciden en día y hora, con menos de cuatro horas
   entre el final de una y el comienzo de la otra, o si serían más de dos finales el mismo día;
 - facilita la nueva fecha (al menos 24 h de diferencia) el profesorado de la asignatura del
   **curso superior**; si una es de convocatoria oficial y la otra no, el de esta última;
-- se pide al menos cinco días hábiles antes de la prueba, y el estudiante aporta el
-  certificado de asistencia a la otra prueba en dos días hábiles como máximo.
+- se pide al menos cinco días hábiles antes de la prueba (también lo fija el Acuerdo del
+  Director de 15-12-2014), y el estudiante aporta el certificado de asistencia a la otra prueba
+  en dos días hábiles como máximo;
+- la fecha alternativa debe caer dentro del periodo oficial de exámenes (mismo Acuerdo).
 
-La «resolución» es la respuesta del profesor, con la misma estructura reducida: hechos,
-norma, decisión y a quién reclamar. El aplazamiento por enfermedad u otra causa justificada
-(art. 59) sí va ante el Director, en cinco días hábiles: es un caso cercano para más adelante.
+La «resolución» es la respuesta del profesor, con la misma estructura reducida: título
+`RESPUESTA DE <fecha> DEL PROFESORADO DE LA ASIGNATURA …`, hechos, fundamentos, `ACUERDA:` y,
+en vez de pie de recursos, a quién reclamar: el desacuerdo se comunica al Director como
+incidencia académica (Acuerdo de 25-10-2013). El calendario de exámenes de los casos es
+ficticio (en el corpus no está el de 2026/2027). El aplazamiento por enfermedad u otra causa
+justificada (art. 59) sí va ante el Director, en cinco días hábiles: es un caso cercano para
+más adelante.
+
+| Caso | Presentada | Decisión | Qué prueba |
+|---|---|---|---|
+| fa-001 | 2027-01-14 | estimar | Dos finales a la misma hora; lo facilita el profesorado de 3.º |
+| fa-002 | 2027-01-21 | inadmitir | Variante de fa-001 fuera de plazo (terminaba el 18 de enero) |
+| fa-003 | 2027-01-14 | desestimar | Variante de fa-001 con 4 h 30 min entre exámenes: no hay coincidencia |
+| fa-004 | 2026-11-09 | estimar | Examen de convocatoria especial frente a prueba de evaluación continua: facilita el profesorado de la no oficial, aunque sea de un curso inferior |
+
+## Séptima convocatoria (`septima_convocatoria/`)
+
+Normas de Progreso y Permanencia (texto vigente, modificado el 2-4-2025), art. 10: seis
+convocatorias por asignatura; las de «no presentado» no computan (y, según la disposición
+transitoria tercera, solo constan las calificadas); quien las agota puede pedir una séptima,
+que autoriza la **Comisión de Permanencia** de la ULPGC tras un estudio individualizado de una
+petición motivada. Recurso de alzada ante el Consejo Social en un mes (art. 18). La concesión
+es discrecional: el gold de sep-001 es una motivación razonable, no la única posible.
+
+| Caso | Presentada | Decisión | Qué prueba |
+|---|---|---|---|
+| sep-001 | 2026-09-10 | estimar | Seis convocatorias calificadas, notas al alza, hospitalización acreditada, última asignatura |
+| sep-002 | 2026-09-10 | requerir_subsanacion | Variante de sep-001 sin motivación (art. 10.3; art. 66.1.c de la Ley 39/2015) |
+| sep-003 | 2026-09-11 | desestimar | Seis convocatorias, pero dos «no presentado»: solo computan cuatro |
+
+## Cambio de turno o grupo (`cambio_grupo/`)
+
+Directrices de la EII aprobadas en Junta de Escuela el 24-07-2023: solo se estudian las
+solicitudes en alguna de las situaciones que enumeran (NEAE, hijos menores de 6 años, contrato
+de trabajo, deportista de alto nivel, otros estudios oficiales, transporte público y, desde
+2.º, solapamiento entre cursos), con su justificante; se conceden si hay vacantes; resuelve
+la **Subdirección de Ordenación Académica**. Plazo del primer semestre 2026/2027 en la sede: del
+11 de septiembre al 16 de octubre de 2026. La EII resuelve en una resolución colectiva con
+anexo (la del 4-11-2024 está en el corpus); aquí se escribe una individual con su mismo
+lenguaje: los motivos de denegación (1: sin motivación objetiva o sin acreditar; 2: cambio no
+especificado; 3: algún grupo de destino sin plazas, y como se resuelve en bloque se deniega
+todo; 4: ya resuelto por otra solicitud) y la reclamación ante la Dirección del Centro por
+Instancia General en el plazo que abre la resolución.
+
+| Caso | Presentada | Decisión | Qué prueba |
+|---|---|---|---|
+| cg-001 | 2026-09-25 | estimar | Contrato de trabajo de mañana acreditado y plazas en los tres grupos |
+| cg-002 | 2026-09-30 | desestimar | Preferencia personal: no es una situación prevista, aunque haya plazas (motivo 1) |
+| cg-003 | 2026-10-05 | desestimar | Otros estudios oficiales acreditados, pero un grupo de destino lleno: se deniega en bloque (motivo 3) |
+| cg-004 | 2026-10-20 | inadmitir | Variante de cg-001 fuera de plazo |
