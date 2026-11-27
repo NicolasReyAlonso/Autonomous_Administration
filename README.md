@@ -85,6 +85,32 @@ artículos correctos y la marca como correcta, parcial, incorrecta o sin respues
 razonamientos y veredictos quedan en `outputs/evaluaciones/` (`--resumen FICHERO` vuelve a
 mostrar el resumen; `--rejuzgar FICHERO` repite solo el juicio).
 
+### 8. Resolver instancias
+
+Dada una instancia de `data/instancias/` (lo que presenta el interesado, su expediente y los
+informes), busca la normativa aplicable en la fecha de presentación y Gemma 4 redacta la
+resolución completa con el formato del Manual de normalización de la ULPGC (o el
+requerimiento de subsanación, o la respuesta del profesorado), junto con la norma aplicable,
+cada requisito comprobado, la decisión, el órgano y el recurso.
+
+El prompt ocupa unas 13.000 fichas: **en LM Studio hay que cargar Gemma 4 E4B con un contexto
+de 24576 o más** (al cargarlo: *Context Length*, y guardarlo con *Remember settings*; por
+defecto carga con 8192 y la petición falla). Con 24576 ocupa ~5,3 GB en la RTX 5060.
+
+```bash
+python scripts/resolver_instancia.py data/instancias/compensatoria/comp-001.json
+python scripts/resolver_instancia.py data/instancias/cambio_grupo/ --sin-pensar
+python scripts/resolver_instancia.py comp-008.json --solo-busqueda   # qué normativa recibe, sin modelo
+python scripts/evaluar_instancias.py                                 # las 21 instancias, ~20 min
+python scripts/evaluar_instancias.py --tramite septima_convocatoria --sin-pensar
+```
+
+`evaluar_instancias.py` mide el acierto en la decisión (en total, por trámite, en matriz de
+confusión y en los pares de variantes que solo cambian un dato), si marca el requisito
+incumplido y el formato del documento; con `--juez MODELO`, un modelo compara además con el
+gold la norma, la motivación, el órgano y el recurso. Los resultados quedan en
+`outputs/instancias/`.
+
 ## Estructura
 
 | Ruta | Qué es |
@@ -99,6 +125,9 @@ mostrar el resumen; `--rejuzgar FICHERO` repite solo el juicio).
 | `scripts/evaluar_respuestas.py` | Mide las respuestas del RAG con el banco de preguntas (Gemma 12B de juez) |
 | `rag/busqueda.py` | Buscador híbrido (`Buscador.cargar()` + `.buscar(pregunta)`) |
 | `rag/responder.py` | RAG completo: busca los artículos y Gemma 4 redacta la respuesta con citas |
+| `rag/resolver.py` | Resolución de instancias: búsqueda por documentos con la fecha de presentación + Gemma 4 redacta la resolución (JSON con el esquema del gold) |
+| `scripts/resolver_instancia.py` | Resuelve una o varias instancias desde la terminal y compara con su gold |
+| `scripts/evaluar_instancias.py` | Mide el resolutor con todas las instancias (decisión, pares, formato; juez opcional) |
 | `data/manifests/` | Metadatos de cada documento descargado |
 | `data/overrides.json` | Correcciones manuales de vigencia: normas derogadas que la web no marca y fechas desde/hasta las que se aplica cada una |
 | `data/eval/preguntas.jsonl` | Banco de preguntas con su artículo correcto (y `fecha` si la respuesta depende de ella; si no, la del banco, 2026-11-27) |
