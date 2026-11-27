@@ -24,6 +24,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from rag.busqueda import RAIZ, Buscador  # noqa: E402
 
 PREGUNTAS = RAIZ / "data" / "eval" / "preguntas.jsonl"
+# Fecha en que se revisaron las respuestas del banco. Las preguntas sin campo "fecha" se
+# buscan en la normativa aplicable ese día, para que el resultado no dependa de cuándo se
+# ejecute la evaluación (la vigencia cambia con la fecha: ver data/overrides.json).
+FECHA_BANCO = "2026-11-27"
+
+
+def fecha_de(q: dict) -> str:
+    return q.get("fecha", FECHA_BANCO)
 
 
 def es_relevante(fragmento: dict, relevantes: list[dict]) -> bool:
@@ -36,7 +44,7 @@ def evaluar(buscador: Buscador, preguntas: list[dict], modo: str) -> list[int | 
     """Posición (1-10) del primer fragmento correcto para cada pregunta, o None."""
     posiciones = []
     for q in preguntas:
-        resultados = buscador.buscar(q["pregunta"], k=10, modo=modo)
+        resultados = buscador.buscar(q["pregunta"], k=10, modo=modo, fecha=fecha_de(q))
         pos = next((n for n, r in enumerate(resultados, 1)
                     if es_relevante(r.fragmento, q["relevantes"])), None)
         posiciones.append(pos)

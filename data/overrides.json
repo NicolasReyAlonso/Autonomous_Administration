@@ -1,5 +1,20 @@
 {
-  "_comentario": "Correcciones manuales por URL (la del manifiesto). Claves: vigente (bool), motivo (str), excluir (bool: no se procesa). Los títulos que contienen 'derogado' ya se marcan como no vigentes automáticamente.",
+  "_comentario": "Correcciones manuales por URL (la del manifiesto). Claves: vigente (bool), vigente_desde / vigente_hasta (fechas ISO, ambas incluidas: el documento solo se aplica a solicitudes de ese periodo), motivo (str), titulo (str: sustituye al del enlace), excluir (bool: no se procesa). Los títulos que contienen 'derogado' ya se marcan como no vigentes automáticamente; si se les dan fechas, se aplican dentro de ellas.",
+  "https://www.ulpgc.es/sites/default/files/ArchivosULPGC/Normativa%20y%20reglamentos/Reglamentos/derogado_reglamento_de_evaluacion_compensatoria_para_las_titulaciones_oficiales_de_grado_de_la_ulpgc_boulpgc_5_diciembre_2018.pdf": {
+    "vigente_hasta": "2027-01-07",
+    "motivo": "Derogado por el Reglamento 1/2026, que entra en vigor en la convocatoria ordinaria del curso 2026/2027 (disposición final). La EII lo sigue aplicando a las solicitudes de la convocatoria especial (2-16 dic 2026) y aplica el 1/2026 a partir del 8 ene 2027 (Plazos de evaluación compensatoria 2026/2027, document/254)."
+  },
+  "https://www.ulpgc.es/sites/default/files/ArchivosULPGC/Normativa%20y%20reglamentos/Reglamentos/reglamento_1-2026_evaluacion_compensatoria_de_la_ulpgc_boulpgc_3_julio_2026.pdf": {
+    "vigente_desde": "2027-01-08",
+    "motivo": "Entra en vigor en la convocatoria ordinaria del curso 2026/2027 (disposición final). En la EII se aplica a las solicitudes presentadas a partir del 8 ene 2027 (Plazos de evaluación compensatoria 2026/2027, document/254)."
+  },
+  "https://www.eii.ulpgc.es/document/151": {
+    "vigente_desde": "2027-01-08",
+    "motivo": "Resume los requisitos del Reglamento 1/2026, que la EII aplica a las solicitudes presentadas a partir del 8 ene 2027 (document/254)."
+  },
+  "https://www.eii.ulpgc.es/document/254": {
+    "titulo": "Plazos para la solicitud de la evaluación compensatoria en la EII, curso 2026/2027"
+  },
   "https://www.ulpgc.es/sites/default/files/ArchivosULPGC/Normativa%20y%20reglamentos/Reglamentos/normas-de-progreso-y-permanencia-ulpgc-2024.pdf": {
     "vigente": false,
     "motivo": "Texto original de 2024 de las Normas de Progreso y Permanencia; la versión vigente es la consolidada con la modificación del Consejo Social de 2 de abril de 2025 (publicada en csocial.ulpgc.es)."
@@ -21,11 +36,11 @@
     "motivo": "Reglamento de Reincorporación y Traslado de Expediente de 2010 (texto modificado en 2021): derogado expresamente por la disposición derogatoria única del Reglamento 5/2024 de Admisión por Traslado de Expediente. La web de la ULPGC no lo marca como derogado."
   },
   "https://www.eii.ulpgc.es/document/24": {
-    "vigente": false,
-    "motivo": "Reglamento de Evaluación Compensatoria de la EII (Rev. 06, 2023; exige el 85 % de los créditos): derogado por la disposición derogatoria del Reglamento 1/2026 de Evaluación Compensatoria de la ULPGC ('Quedan derogados todos los reglamentos de Centros elaborados en aplicación del anterior'). La EII aplica ya el 75 % del Reglamento 1/2026 (Tabla resumen, document/151). La web de la EII no lo marca como derogado."
+    "vigente_hasta": "2027-01-07",
+    "motivo": "Reglamento de Evaluación Compensatoria de la EII (Rev. 06, 2023; exige el 85 % de los créditos compensables): adapta el reglamento ULPGC de 2018 y queda derogado por el Reglamento 1/2026 ('Quedan derogados todos los reglamentos de Centros elaborados en aplicación del anterior'). Se sigue aplicando a las solicitudes de la convocatoria especial (2-16 dic 2026); desde el 8 ene 2027 rige el 1/2026 (document/254). La web de la EII no lo marca como derogado."
   },
   "https://www.eii.ulpgc.es/document/25": {
-    "vigente": false,
-    "motivo": "Listado de asignaturas no compensables (Rev. 04, diciembre de 2024): hecho con el reglamento derogado (umbrales del 85 %). Lo sustituye la lista aprobada por la Junta de Escuela el 13-07-26 para el Reglamento 1/2026, publicada en la Tabla resumen de la evaluación compensatoria (document/151)."
+    "vigente_hasta": "2027-01-07",
+    "motivo": "Listado de asignaturas no compensables (Rev. 04), hecho para el reglamento de la EII Rev. 06 (umbrales del 85 %). Se aplica con él hasta el 7 ene 2027; para el Reglamento 1/2026 la Junta de Escuela aprobó otra lista el 13-07-26, publicada en la Tabla resumen (document/151)."
   }
 }

@@ -9,6 +9,11 @@ Uso:
     b = Buscador.cargar()  # modelo por defecto: MODELO_POR_DEFECTO
     for r in b.buscar("¿cuántas convocatorias tengo?", k=5):
         print(r.puntuacion, r.fragmento["titulo_doc"], r.fragmento["encabezado"])
+    b.buscar("porcentaje de créditos para la compensación", fecha="2026-12-10")
+
+Vigencia: por defecto solo se busca en la normativa aplicable en `fecha` (hoy si no se
+indica), según el vigente / vigente_desde / vigente_hasta de cada fragmento (ver
+data/overrides.json). Para una instancia, `fecha` es la de presentación.
 """
 
 from __future__ import annotations
@@ -18,6 +23,7 @@ import json
 import re
 import unicodedata
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 
 import numpy as np
@@ -95,6 +101,15 @@ def huella(fragmentos: list[dict]) -> str:
         h.update(c["id"].encode())
         h.update(hashlib.sha256(c["texto"].encode()).digest())
     return h.hexdigest()[:16]
+
+
+def fecha_iso(fecha: str | date | None = None) -> str:
+    """'AAAA-MM-DD' de una fecha (hoy si es None); falla si el texto no es una fecha válida."""
+    if fecha is None:
+        return date.today().isoformat()
+    if isinstance(fecha, date):
+        return fecha.isoformat()
+    return date.fromisoformat(fecha).isoformat()
 
 
 def carpeta_modelo(modelo: str) -> Path:
@@ -188,6 +203,9 @@ class Buscador:
         self.modelo_nombre = modelo
         self._modelo = None
         self.vigentes = np.array([c["vigente"] for c in fragmentos])
+        # Fechas ISO (se comparan como texto); "" = sin límite
+        self.desde = np.array([c.get("vigente_desde") or "" for c in fragmentos])
+        self.hasta = np.array([c.get("vigente_hasta") or "" for c in fragmentos])
         self.numeros = np.array([c["numero"] for c in fragmentos])
 
     @classmethod
@@ -208,8 +226,14 @@ class Buscador:
             emb = np.load(cm / "embeddings.npy").astype(np.float32)
         return cls(fragmentos, bm25, emb, modelo)
 
-    def _mascara(self, solo_vigentes: bool) -> np.ndarray:
-        return self.vigentes if solo_vigentes else np.ones(len(self.fragmentos), bool)
+    def aplicables(self, fecha: str | date | None = None) -> np.ndarray:
+        """Fragmentos de la normativa que se aplica en `fecha` (hoy si es None)."""
+        f = fecha_iso(fecha)
+        return (self.vigentes & ((self.desde == "") | (self.desde <= f))
+                & ((self.hasta == "") | (self.hasta >= f)))
+
+    def _mascara(self, solo_vigentes: bool, fecha: str | date | None) -> np.ndarray:
+        return self.aplicables(fecha) if solo_vigentes else np.ones(len(self.fragmentos), bool)
 
     def puntuar_bm25(self, consulta: str) -> np.ndarray:
         tokens = tokenizar(consulta)
@@ -231,15 +255,17 @@ class Buscador:
 
     def buscar(self, consulta: str, k: int = 10, modo: str = "hibrido",
                solo_vigentes: bool = True, profundidad: int = 100,
-               peso_bm25: float = PESO_BM25) -> list[Resultado]:
+               peso_bm25: float = PESO_BM25, fecha: str | date | None = None) -> list[Resultado]:
         """modo: 'bm25', 'denso' o 'hibrido'.
+
+        solo_vigentes: busca solo en la normativa aplicable en `fecha` (hoy si es None).
 
         El modo híbrido combina con Reciprocal Rank Fusion ponderada:
           puntuación = peso_bm25/(K + pos_bm25) + 1/(K + pos_densa) [+ 1/(K + pos_cita)]
         donde pos_cita es la posición (por BM25) entre los fragmentos del artículo
         citado en la consulta, si cita uno ("artículo 58 del reglamento...").
         """
-        mascara = self._mascara(solo_vigentes)
+        mascara = self._mascara(solo_vigentes, fecha)
         if modo == "bm25":
             p = self.puntuar_bm25(consulta)
             return [Resultado(self.fragmentos[i], float(p[i]), posicion_bm25=n)

@@ -26,10 +26,11 @@ import os
 import re
 from collections.abc import Iterator
 from dataclasses import dataclass, field
+from datetime import date
 
 import requests
 
-from rag.busqueda import Buscador, Resultado
+from rag.busqueda import Buscador, Resultado, fecha_iso
 
 URL_POR_DEFECTO = os.environ.get("RAG_LLM_URL", "http://localhost:1234/v1")
 MODELO_LLM = os.environ.get("RAG_LLM_MODELO")
@@ -54,6 +55,8 @@ Si una afirmación sale de varios fragmentos, cítalos todos: [1][3].
 en la normativa consultada") y no respondas de memoria.
 - Si los fragmentos se contradicen o la respuesta depende de la situación (titulación, \
 tipo de estudiante, convocatoria...), explica cada caso.
+- La consulta tiene una fecha y los fragmentos son de la normativa que se aplica en esa \
+fecha. Si un fragmento dice desde o hasta cuándo se aplica, menciónalo cuando importe.
 - Responde en español, de forma breve y directa: primero la respuesta y después, si los \
 hay, los matices importantes (excepciones, plazos, requisitos)."""
 
@@ -74,13 +77,19 @@ def describir_fragmento(f: dict) -> str:
     if f["paginas"]:
         p = f["paginas"]
         texto += f" (pág. {p[0]})" if len(p) == 1 else f" (págs. {p[0]}-{p[-1]})"
+    desde, hasta = f.get("vigente_desde"), f.get("vigente_hasta")
+    if desde or hasta:
+        texto += " [se aplica" + (f" desde el {desde}" if desde else "") + \
+                 (f" hasta el {hasta}" if hasta else "") + "]"
     return texto
 
 
-def construir_mensajes(pregunta: str, resultados: list[Resultado]) -> list[dict]:
+def construir_mensajes(pregunta: str, resultados: list[Resultado],
+                       fecha: str | date | None = None) -> list[dict]:
     contexto = "\n\n".join(f"[{n}] {describir_fragmento(r.fragmento)}\n{r.fragmento['texto'].strip()}"
                            for n, r in enumerate(resultados, 1))
-    usuario = f"Fragmentos de normativa:\n\n{contexto}\n\nPregunta: {pregunta}"
+    usuario = (f"Fragmentos de normativa:\n\n{contexto}\n\n"
+               f"Fecha de la consulta: {fecha_iso(fecha)}\n\nPregunta: {pregunta}")
     return [{"role": "system", "content": SISTEMA}, {"role": "user", "content": usuario}]
 
 
@@ -196,13 +205,14 @@ class Responder:
         llm = ClienteLLM(url, modelo_llm)  # primero: si no hay servidor, falla antes de cargar índices
         return cls(Buscador.cargar(), llm, k, pensar)
 
-    def preparar(self, pregunta: str) -> tuple[list[Resultado], list[dict]]:
-        resultados = self.buscador.buscar(pregunta, k=self.k)
-        return resultados, construir_mensajes(pregunta, resultados)
+    def preparar(self, pregunta: str, fecha: str | date | None = None) -> tuple[list[Resultado], list[dict]]:
+        """fecha: la de la solicitud (hoy si es None); decide qué normativa se consulta."""
+        resultados = self.buscador.buscar(pregunta, k=self.k, fecha=fecha)
+        return resultados, construir_mensajes(pregunta, resultados, fecha)
 
-    def responder_a_trozos(self, pregunta: str) -> Iterator[str | Respuesta]:
+    def responder_a_trozos(self, pregunta: str, fecha: str | date | None = None) -> Iterator[str | Respuesta]:
         """Va devolviendo el texto de la respuesta según se genera y, al final, el objeto Respuesta."""
-        resultados, mensajes = self.preparar(pregunta)
+        resultados, mensajes = self.preparar(pregunta, fecha)
         salida = {"razonamiento": [], "respuesta": []}
         for tipo, trozo in self.llm.generar(mensajes, pensar=self.pensar):
             salida[tipo].append(trozo)
@@ -211,6 +221,6 @@ class Responder:
         yield Respuesta(pregunta, "".join(salida["respuesta"]).strip(), resultados,
                         "".join(salida["razonamiento"]).strip(), mensajes)
 
-    def responder(self, pregunta: str) -> Respuesta:
-        *_, respuesta = self.responder_a_trozos(pregunta)
+    def responder(self, pregunta: str, fecha: str | date | None = None) -> Respuesta:
+        *_, respuesta = self.responder_a_trozos(pregunta, fecha)
         return respuesta

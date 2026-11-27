@@ -32,6 +32,7 @@ import statistics
 import unicodedata
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
 
 import pymupdf
@@ -407,14 +408,40 @@ def cargar_documentos() -> list[dict]:
     return docs
 
 
-def vigencia(doc: dict, overrides: dict) -> tuple[bool, str, bool]:
+def vigencia(doc: dict, overrides: dict) -> dict:
+    """Si el documento está en vigor y, cuando se sabe, entre qué fechas se aplica.
+
+    vigente_desde y vigente_hasta son fechas ISO, ambas incluidas (None = sin límite).
+    Un documento derogado sin fechas queda con vigente=False y no se aplica a ninguna
+    fecha. Si overrides.json le da fechas, se aplica dentro de ellas aunque la web lo
+    marque como derogado: p. ej. un reglamento que sigue rigiendo las solicitudes
+    presentadas antes de que entre en vigor el que lo deroga.
+    """
     o = overrides.get(doc["url"], {})
-    vigente, motivo = True, ""
+    v = {"vigente": True, "vigente_desde": o.get("vigente_desde"),
+         "vigente_hasta": o.get("vigente_hasta"), "motivo_vigencia": ""}
+    for clave in ("vigente_desde", "vigente_hasta"):
+        if v[clave]:
+            date.fromisoformat(v[clave])  # falla pronto si la fecha está mal escrita
     if re.search(r"derogad", doc["titulo"], re.I):
-        vigente, motivo = False, "Marcado como derogado en la web de origen."
-    if "vigente" in o:
-        vigente, motivo = o["vigente"], o.get("motivo", motivo)
-    return vigente, motivo, bool(o.get("excluir"))
+        v["vigente"], v["motivo_vigencia"] = False, "Marcado como derogado en la web de origen."
+    if v["vigente_desde"] or v["vigente_hasta"]:
+        v["vigente"] = True
+    v["vigente"] = o.get("vigente", v["vigente"])
+    v["motivo_vigencia"] = o.get("motivo", v["motivo_vigencia"])
+    return v
+
+
+def describir_vigencia(v: dict) -> str:
+    """'sí', 'sí, hasta el 2027-01-07 incluido — motivo' o 'NO — motivo'."""
+    if not v["vigente"]:
+        return "NO — " + v["motivo_vigencia"]
+    texto = "sí"
+    if v["vigente_desde"]:
+        texto += f", desde el {v['vigente_desde']}"
+    if v["vigente_hasta"]:
+        texto += f", hasta el {v['vigente_hasta']} incluido"
+    return texto + (f" — {v['motivo_vigencia']}" if v["motivo_vigencia"] else "")
 
 
 def shingles(texto: str, n: int = 6) -> set[int]:
@@ -429,10 +456,12 @@ def main() -> None:
 
     chunks, sin_estructura, avisos, firmas = [], [], [], {}
     for d in docs:
-        vigente, motivo, excluir = vigencia(d, overrides)
-        if excluir:
-            print(f"EXCLUIDO  {d['titulo'][:80]}  ({overrides[d['url']].get('motivo', '')})")
+        o = overrides.get(d["url"], {})
+        if o.get("excluir"):
+            print(f"EXCLUIDO  {d['titulo'][:80]}  ({o.get('motivo', '')})")
             continue
+        d = {**d, "titulo": o.get("titulo") or d["titulo"]}
+        vig = vigencia(d, overrides)
         lineas, n_paginas = extraer_lineas(RAIZ / d["archivo"])
         unidades = estructurar(lineas)
         n_art = sum(u.tipo == "articulo" for u in unidades)
@@ -445,7 +474,7 @@ def main() -> None:
 
         doc_id = d["sha256"][:12]
         md = [f"# {d['titulo']}", "", f"- Fuente: {d['fuente']}  ", f"- URL: {d.get('url_final') or d['url']}  ",
-              f"- Vigente: {'sí' if vigente else 'NO — ' + motivo}  ",
+              f"- Vigente: {describir_vigencia(vig)}  ",
               f"- Categorías: {', '.join(d['categorias'])}", ""]
         n_chunk = 0
         for u in unidades:
@@ -464,8 +493,7 @@ def main() -> None:
                     "titulo_doc": d["titulo"],
                     "url": d.get("url_final") or d["url"],
                     "categorias": d["categorias"],
-                    "vigente": vigente,
-                    "motivo_no_vigente": motivo,
+                    **vig,
                     "ruta": u.ruta,
                     "tipo": u.tipo,
                     "numero": u.numero,
@@ -488,7 +516,8 @@ def main() -> None:
     largos = [len(c["texto"]) for c in chunks]
     por_tipo = Counter(c["tipo"] for c in chunks)
     print(f"\n== {len(docs)} documentos · {len(chunks)} fragmentos "
-          f"({sum(not c['vigente'] for c in chunks)} no vigentes)")
+          f"({sum(not c['vigente'] for c in chunks)} no vigentes, "
+          f"{sum(bool(c['vigente_desde'] or c['vigente_hasta']) for c in chunks)} con fechas de vigencia)")
     print(f"   longitud (caracteres): mediana {statistics.median(largos):.0f} · "
           f"p95 {sorted(largos)[int(0.95 * len(largos))]} · máx {max(largos)}")
     print(f"   por tipo: {dict(por_tipo)}")

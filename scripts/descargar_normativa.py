@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Descarga la normativa general de la ULPGC y la normativa propia de la EII.
+"""Descarga la normativa general de la ULPGC, la propia de la EII y las leyes que citan.
 
 Uso (desde la raíz del proyecto, con el venv activado):
-    python scripts/descargar_normativa.py              # ULPGC + EII
+    python scripts/descargar_normativa.py              # ULPGC + EII + BOE
     python scripts/descargar_normativa.py --solo eii   # solo una fuente
 
 Qué descarga
@@ -11,7 +11,10 @@ Qué descarga
          de normativa de las páginas de PAGINAS_EXTRA_ULPGC.
          No descarga el BOULPGC (el boletín oficial completo).
   EII    /es/escuela/normativa con todas sus páginas ("Cargar más") y las
-         subpáginas de normativa que enlaza (Prácticas Externas, TFT...).
+         subpáginas de normativa que enlaza (Prácticas Externas, TFT...), más las
+         páginas de PAGINAS_EXTRA_EII (p. ej. los plazos de la compensatoria).
+  BOE    Texto consolidado de las leyes de DOCUMENTOS_BOE (Ley 39/2015), que citan
+         las resoluciones: subsanación, recursos, plazos...
 
 Resultado
   data/raw/<fuente>/*.pdf          documentos (no se suben a git)
@@ -55,6 +58,19 @@ EII = "https://www.eii.ulpgc.es"
 # texto encaje con FILTRO_EXTRA, para no traer organigramas ni cartas de servicio.
 PAGINAS_EXTRA_ULPGC = [f"{ULPGC}/gestion-academica/progresoypermanencia"]
 FILTRO_EXTRA = re.compile(r"normativa|normas|reglamento|instrucci|modificaci", re.I)
+
+# Páginas de la EII fuera de /normativa con documentos que deciden trámites, y la
+# categoría que se les da. La de compensatoria enlaza los plazos de cada curso, que
+# fijan qué reglamento se aplica según la fecha de la solicitud.
+PAGINAS_EXTRA_EII = {f"{EII}/es/informacionacademica/evaluacioncompensatoria": "Evaluación Compensatoria"}
+
+# Leyes estatales (texto consolidado del BOE): (url del PDF, título, categoría, página ELI)
+DOCUMENTOS_BOE = [
+    ("https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf",
+     "Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las "
+     "Administraciones Públicas (texto consolidado)",
+     "Procedimiento administrativo", "https://www.boe.es/eli/es/l/2015/10/01/39/con"),
+]
 
 RAIZ = Path(__file__).resolve().parent.parent
 
@@ -273,7 +289,7 @@ def seccion_eii(a, pagina: str, seccion_pagina: str) -> tuple[str, str]:
 
 
 def recolectar_eii(cli: Cliente, docs: dict[str, Documento]) -> None:
-    pendientes = [f"{EII}/es/escuela/normativa"]
+    pendientes = [f"{EII}/es/escuela/normativa", *PAGINAS_EXTRA_EII]
     visitadas: set[str] = set()
     while pendientes:
         pagina = pendientes.pop(0)
@@ -286,7 +302,7 @@ def recolectar_eii(cli: Cliente, docs: dict[str, Documento]) -> None:
             continue
         visitadas.add(r.url)
         sopa = BeautifulSoup(r.text, "html.parser")
-        seccion_pagina = titulo_pagina(sopa)
+        seccion_pagina = PAGINAS_EXTRA_EII.get(pagina) or titulo_pagina(sopa)
         contenido = sopa.find(id="content") or sopa
 
         for url, texto, a in enlaces(contenido, r.url):
@@ -304,6 +320,12 @@ def recolectar_eii(cli: Cliente, docs: dict[str, Documento]) -> None:
                 if es_paginacion or "normativa" in p.path.lower():
                     if url not in visitadas:
                         pendientes.append(url)
+
+
+def recolectar_boe(cli: Cliente, docs: dict[str, Documento]) -> None:
+    print("BOE · leyes de DOCUMENTOS_BOE")
+    for url, titulo, categoria, pagina in DOCUMENTOS_BOE:
+        registrar(docs, url, "boe", titulo, pagina, categoria=categoria)
 
 
 # --------------------------------------------------------------------------- #
@@ -367,13 +389,13 @@ def resumen(fuente: str, docs: dict[str, Documento]) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--solo", choices=["ulpgc", "eii"], help="descargar solo una fuente")
+    ap.add_argument("--solo", choices=["ulpgc", "eii", "boe"], help="descargar solo una fuente")
     ap.add_argument("--datos", default="data", help="carpeta de datos (por defecto: data)")
     args = ap.parse_args()
 
     datos = RAIZ / args.datos
-    fuentes = [args.solo] if args.solo else ["eii", "ulpgc"]
-    recolectores = {"ulpgc": recolectar_ulpgc, "eii": recolectar_eii}
+    fuentes = [args.solo] if args.solo else ["eii", "ulpgc", "boe"]
+    recolectores = {"ulpgc": recolectar_ulpgc, "eii": recolectar_eii, "boe": recolectar_boe}
     cli = Cliente()
 
     for fuente in fuentes:

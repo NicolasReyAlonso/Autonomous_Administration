@@ -14,7 +14,7 @@ Todo se guarda en outputs/evaluaciones/*.jsonl, para revisarlo a mano y para com
 con el modelo después del entrenamiento LoRA.
 
 Uso (desde la raíz del proyecto, con el venv activado y LM Studio sirviendo):
-    python scripts/evaluar_respuestas.py                       # las 31 preguntas (~30 min)
+    python scripts/evaluar_respuestas.py                       # todas las preguntas (~30 min)
     python scripts/evaluar_respuestas.py --sin-pensar          # respuestas sin razonamiento previo
     python scripts/evaluar_respuestas.py --preguntas 0 5 15    # solo algunas
     python scripts/evaluar_respuestas.py --sin-juez            # solo responde; juzgar luego con --rejuzgar
@@ -48,7 +48,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from rag.busqueda import RAIZ, cargar_fragmentos  # noqa: E402
 from rag.responder import (K_FRAGMENTOS, MODELO_LLM, RE_CITA, URL_POR_DEFECTO,  # noqa: E402
                            ClienteLLM, Responder, RespuestaCortada, describir_fragmento)
-from scripts.evaluar_busqueda import PREGUNTAS, es_relevante  # noqa: E402
+from scripts.evaluar_busqueda import PREGUNTAS, es_relevante, fecha_de  # noqa: E402
 
 SALIDA = RAIZ / "outputs" / "evaluaciones"
 PREFERENCIAS_JUEZ = ("gemma-4-12b", "gemma-4")
@@ -123,11 +123,12 @@ def responder_preguntas(responder: Responder, preguntas: list[dict], indices: li
     for n, i in enumerate(indices, 1):
         q = preguntas[i]
         t = time.time()
-        r = responder.responder(q["pregunta"])
+        r = responder.responder(q["pregunta"], fecha_de(q))
         segundos = time.time() - t
         correctas = [p for p, res in enumerate(r.resultados, 1) if es_relevante(res.fragmento, q["relevantes"])]
         registros.append({
-            "indice": i, "pregunta": q["pregunta"], "nota": q["nota"], "relevantes": q["relevantes"],
+            "indice": i, "pregunta": q["pregunta"], "fecha": fecha_de(q), "nota": q["nota"],
+            "relevantes": q["relevantes"],
             "modelo": responder.llm.modelo, "pensar": responder.pensar, "k": responder.k,
             "respuesta": r.texto, "razonamiento": r.razonamiento, "segundos": round(segundos, 1),
             "fragmentos": [res.fragmento["id"] for res in r.resultados],
