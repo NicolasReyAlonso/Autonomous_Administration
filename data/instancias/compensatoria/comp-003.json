@@ -1,0 +1,88 @@
+{
+  "id": "comp-003",
+  "tramite": "evaluacion_compensatoria",
+  "ficha_sia": "2890455",
+  "variante_de": "comp-001",
+  "notas_caso": "Variante de comp-001 presentada en papel en el Registro General y sin firmar (por la Sede Electrónica la firma va con el certificado, así que cambia también el registro). Falta la firma del art. 66.1.e de la Ley 39/2015: antes de estudiar el fondo, la Administración del Edificio requiere la subsanación en diez días hábiles (art. 68.1). Sigue el modelo de requerimiento del Manual de normalización (págs. 111-113). Es un acto de trámite: no lleva pie de recursos (art. 112.1). Todavía no hay informe del coordinador: solo se pide para las solicitudes que cumplen los requisitos (art. 7 del Reglamento de la EII).",
+  "instancia": {
+    "procedimiento": "Evaluación compensatoria de titulaciones de grado (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Registro General de la ULPGC",
+    "fecha_presentacion": "2026-12-09",
+    "solicitante": {
+      "nombre": "Laura Méndez Suárez",
+      "dni": "12345678Z",
+      "correo": "laura.mendez101@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Dirección de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de evaluación compensatoria",
+    "expone": "Que soy estudiante del Grado en Ingeniería Física y Matemática y estoy matriculada en el curso 2026/2027 en la asignatura Estado Sólido y Materiales, a la que me he presentado en tres convocatorias sin superarla. Que me quedan pendientes para terminar la titulación esta asignatura, las Prácticas Externas y el Trabajo Fin de Grado, y que cumplo los requisitos del Reglamento de Evaluación Compensatoria.",
+    "solicita": "Que se me conceda la evaluación compensatoria de la asignatura Estado Sólido y Materiales (6 ECTS).",
+    "documentacion": [
+      {
+        "nombre": "Solicitud de evaluación compensatoria (formulario de la EII)",
+        "contenido": "D.ª Laura Méndez Suárez, con DNI 12345678Z, estudiante del Grado en Ingeniería Física y Matemática, solicita la compensación de las asignaturas listadas en la tabla adjunta, declarando conocer la reglamentación vigente y cumplir los requisitos que en ella se exigen. Asignatura: Estado Sólido y Materiales."
+      }
+    ],
+    "firmada": false
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Física y Matemática (Plan 40)",
+    "centro": "Escuela de Ingeniería Informática",
+    "creditos_titulacion": 240,
+    "creditos_superados": 210,
+    "creditos_superados_compensables": 210,
+    "primer_y_segundo_curso": "Todas las asignaturas superadas",
+    "nota_media": 6.4,
+    "compensadas_anteriormente": [],
+    "pendientes": [
+      {
+        "asignatura": "Estado Sólido y Materiales",
+        "curso": 3,
+        "ects": 6,
+        "matriculada_2026_2027": true,
+        "convocatorias": [
+          {"curso": "2024/2025", "convocatoria": "ordinaria", "nota": 3.5},
+          {"curso": "2024/2025", "convocatoria": "extraordinaria", "nota": 2.8},
+          {"curso": "2025/2026", "convocatoria": "ordinaria", "nota": 4.1}
+        ]
+      },
+      {"asignatura": "Prácticas Externas", "curso": 4, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []},
+      {"asignatura": "Trabajo Fin de Grado", "curso": 4, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []}
+    ],
+    "superadas_relevantes": [
+      {"asignatura": "Proyectos de Ingeniería", "nota": 6.8, "compensada": false}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "requerir_subsanacion",
+    "norma_aplicable": {
+      "normas": [
+        "Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas (arts. 66 y 68)",
+        "Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 5 de diciembre de 2018)",
+        "Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática (Rev. 06, BOULPGC de 27 de enero de 2023)"
+      ],
+      "motivo": "Presentada el 9 de diciembre de 2026, en el plazo de la convocatoria especial: el procedimiento se rige por el régimen de 2018. Los requisitos de la solicitud y su subsanación son los de la Ley 39/2015, que se aplica a todo procedimiento."
+    },
+    "organo": "Administración del Edificio de Informática y Matemáticas, que tramita el procedimiento (art. 7 del Reglamento de la EII)",
+    "recurso": "Ninguno: el requerimiento es un acto de trámite que no decide el fondo ni impide continuar el procedimiento (art. 112.1 de la Ley 39/2015); la oposición puede alegarse para que se tenga en cuenta en la resolución que ponga fin al procedimiento.",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Plazos de evaluación compensatoria de la EII 2026-2027; art. 6 del Reglamento de la EII", "cumple": true, "motivo": "Presentada el 9 de diciembre, dentro del plazo del 2 al 16 de diciembre de 2026."},
+      {"requisito": "Firma de la solicitud", "norma": "Art. 66.1.e de la Ley 39/2015", "cumple": false, "motivo": "La instancia y el formulario de la EII se presentaron en papel sin firmar, y no consta otro medio que acredite la autenticidad de la voluntad de la solicitante."}
+    ],
+    "resolucion": [
+      "REQUERIMIENTO DE SUBSANACIÓN DE DEFECTOS EN LA SOLICITUD DE EVALUACIÓN COMPENSATORIA DE LA ASIGNATURA ESTADO SÓLIDO Y MATERIALES DEL GRADO EN INGENIERÍA FÍSICA Y MATEMÁTICA",
+      "Esta Administración de Edificio, en relación con la solicitud presentada por usted con fecha 9 de diciembre de 2026 en el Registro General de la Universidad de Las Palmas de Gran Canaria, relativa a la evaluación compensatoria de la asignatura Estado Sólido y Materiales (6 ECTS) del Grado en Ingeniería Física y Matemática, le requiere, de acuerdo con lo previsto en el artículo 68.1 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas (BOE de 2 de octubre), para que en el plazo de diez días hábiles contados a partir del día siguiente al de la recepción de este requerimiento, proceda a subsanar los defectos existentes en su solicitud, debiendo para ello:",
+      "1) Firmar la instancia y el formulario de solicitud de evaluación compensatoria de la Escuela, que se presentaron sin firma (artículo 66.1.e de la Ley 39/2015).",
+      "De no producirse la subsanación en el plazo mencionado, se entenderá que ha desistido de su petición y se procederá a su archivo sin más trámite, previa resolución en tal sentido, dictada en los términos previstos en el artículo 21 de la Ley 39/2015.",
+      "Lo que se le notifica en cumplimiento del artículo 40 de la mencionada Ley 39/2015.",
+      "Las Palmas de Gran Canaria, a 11 de diciembre de 2026.",
+      "EL/LA ADMINISTRADOR/A DEL EDIFICIO DE INFORMÁTICA Y MATEMÁTICAS",
+      "(firma y sello)",
+      "[Nombre y apellidos]",
+      "D.ª LAURA MÉNDEZ SUÁREZ"
+    ]
+  }
+}

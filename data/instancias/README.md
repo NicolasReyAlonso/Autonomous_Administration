@@ -11,6 +11,7 @@ de ejemplo habitual).
 | Campo | Qué es |
 |---|---|
 | `id`, `tramite`, `ficha_sia` | Identificador, trámite y código SIA de su ficha en `data/plantillas/tramites.jsonl` |
+| `variante_de` | (Opcional) Caso del que sale este cambiando un solo dato: los dos forman un par que debe resolverse distinto |
 | `notas_caso` | Qué pone a prueba el caso (no se le pasa al modelo) |
 | `instancia` | Lo que presenta el interesado. Copia los campos de la Instancia General de la sede y del formulario en papel (`data/plantillas/aportados/instancia_general_ulpgc_2009.pdf`): solicitante, medio de notificación, procedimiento, órgano al que se dirige, asunto, fecha de presentación, `expone`, `solicita`, documentación aportada y si está firmada |
 | `expediente` | Datos que ya tiene la ULPGC y que el interesado no tiene que aportar (art. 28.2 de la Ley 39/2015): titulación, créditos, asignaturas pendientes con sus convocatorias, matrícula, nota media, compensaciones previas |
@@ -37,8 +38,16 @@ págs. 114-117), con las referencias legales de la Ley 30/1992 cambiadas a la Le
 
 Según la decisión:
 - **Requerir subsanación** (art. 68.1): falta algo del art. 66 (identificación, petición
-  concreta, firma…) o un documento preceptivo. Plazo de diez días hábiles, «con indicación
-  de que, si así no lo hiciera, se le tendrá por desistido de su petición, previa resolución».
+  concreta, firma…) o un documento preceptivo. No es una resolución sino un acto de trámite
+  de la Administración del Edificio, sin pie de recursos (art. 112.1). Sigue el modelo
+  *Requerimiento de subsanación de defectos en la solicitud* del Manual (págs. 111-113):
+  título `REQUERIMIENTO DE SUBSANACIÓN DE DEFECTOS EN LA SOLICITUD DE …`; «Esta Administración
+  de Edificio, en relación con la solicitud presentada por usted con fecha … le requiere, de
+  acuerdo con lo previsto en el artículo 68.1 de la Ley 39/2015 … para que en el plazo de diez
+  días hábiles …»; la lista numerada de defectos; «De no producirse la subsanación en el plazo
+  mencionado, se entenderá que ha desistido de su petición y se procederá a su archivo sin más
+  trámite, previa resolución en tal sentido»; «Lo que se le notifica en cumplimiento del
+  artículo 40 …»; lugar y fecha, antefirma, firma y sello, nombre, y al pie el destinatario.
 - **Inadmitir**: solicitud fuera de plazo, trámite que no corresponde (por ejemplo, una
   compensatoria de máster, art. 1) o petición manifiestamente carente de fundamento (art. 88.5).
 - **Desestimar**: se estudia el fondo y falla algún requisito; se dice cuál y por qué.
@@ -59,7 +68,33 @@ Fuera de esas ventanas la solicitud se inadmite por extemporánea. Un mismo expe
 puede así resolverse distinto según la fecha: se generan pares de casos para probarlo.
 Al resolver, la búsqueda se hace con la fecha de presentación
 (`buscar(..., fecha=instancia["fecha_presentacion"])`), que deja fuera la norma que todavía
-no se aplica o que ya no se aplica (fechas en `data/overrides.json`).
+no se aplica o que ya no se aplica (fechas en `data/overrides.json`). Entre el 17 de diciembre
+y el 7 de enero la búsqueda sigue devolviendo la norma de 2018, aunque no hay plazo abierto:
+la extemporaneidad sale del documento de Plazos, no del filtro de fechas.
+
+Las asignaturas no compensables también cambian. Con la norma de 2018, en GIFM solo lo son
+las Prácticas Externas y el TFG, más parejas que un mismo estudiante no puede compensar
+(Listado Rev. 04): Programación I + II, Estadística + Probabilidad, y Estado Sólido y Materiales
++ Proyectos de Ingeniería (competencia CE17). Con el 1/2026, la relación de la Junta de Escuela
+de 13-07-26 (Tabla resumen) declara no compensables cada una de ellas por separado: PE, TFG, P1,
+P2, E, P, ESM, PI, AL, G1, G2, MMA1, MMA2 y MMA3. Se supone que esa relación está publicada en el
+BOULPGC (art. 2.2 del 1/2026); si no lo estuviera, el art. 2.3 haría compensables todas las
+asignaturas salvo PE y TFG.
+
+## Casos de evaluación compensatoria
+
+| Caso | Presentada | Decisión | Qué cambia / qué prueba |
+|---|---|---|---|
+| comp-001 | 2026-12-09 | estimar | Caso base de la convocatoria especial (norma de 2018) |
+| comp-002 | 2026-12-18 | inadmitir | Fuera de plazo: entre la ventana de diciembre y la de enero |
+| comp-003 | 2026-12-09 | requerir_subsanacion | En papel y sin firma (art. 66.1.e): requerimiento de la Administración |
+| comp-004 | 2026-12-09 | desestimar | Solo una convocatoria con 2 o más y media de 6,4 (art. 4.c) |
+| comp-005 | 2026-12-09 | estimar | Par de comp-004 con media de 6,7: excepción del art. 4.d + informe favorable |
+| comp-006 | 2026-12-09 | desestimar | Proyectos de Ingeniería ya compensada: pareja no compensable |
+| comp-007 | 2026-12-10 | inadmitir | Estudiante de máster (art. 1) |
+| comp-008 | 2027-01-12 | desestimar | Gemelo de comp-001 con el 1/2026: ESM pasa a no compensable (art. 3.4) |
+| comp-009 | 2027-01-13 | estimar | Termodinámica con el 1/2026; no se exige 1.º y 2.º ni informe |
+| comp-010 | 2027-01-13 | desestimar | Par de comp-009 con solo dos convocatorias (art. 4.3) |
 
 ## Fecha alternativa de examen
 

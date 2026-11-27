@@ -1,0 +1,104 @@
+{
+  "id": "comp-004",
+  "tramite": "evaluacion_compensatoria",
+  "ficha_sia": "2890455",
+  "variante_de": "comp-001",
+  "notas_caso": "Variante de comp-001: cambian dos notas de las convocatorias (1,5, 1,2 y 4,1). Solo una llega a 2 y la nota media (6,4) no alcanza el 6,5 de la excepción del art. 4.d, así que falla el art. 4.c: la solicitud no puede estudiarse, no se pide informe al coordinador (art. 7) y se deniega. Par de comp-005, que solo cambia la nota media.",
+  "instancia": {
+    "procedimiento": "Evaluación compensatoria de titulaciones de grado (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-12-09",
+    "solicitante": {
+      "nombre": "Laura Méndez Suárez",
+      "dni": "12345678Z",
+      "correo": "laura.mendez101@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Dirección de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de evaluación compensatoria",
+    "expone": "Que soy estudiante del Grado en Ingeniería Física y Matemática y estoy matriculada en el curso 2026/2027 en la asignatura Estado Sólido y Materiales, a la que me he presentado en tres convocatorias sin superarla. Que me quedan pendientes para terminar la titulación esta asignatura, las Prácticas Externas y el Trabajo Fin de Grado, y que cumplo los requisitos del Reglamento de Evaluación Compensatoria.",
+    "solicita": "Que se me conceda la evaluación compensatoria de la asignatura Estado Sólido y Materiales (6 ECTS).",
+    "documentacion": [
+      {
+        "nombre": "Solicitud de evaluación compensatoria (formulario de la EII)",
+        "contenido": "D.ª Laura Méndez Suárez, con DNI 12345678Z, estudiante del Grado en Ingeniería Física y Matemática, solicita la compensación de las asignaturas listadas en la tabla adjunta, declarando conocer la reglamentación vigente y cumplir los requisitos que en ella se exigen. Asignatura: Estado Sólido y Materiales."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Física y Matemática (Plan 40)",
+    "centro": "Escuela de Ingeniería Informática",
+    "creditos_titulacion": 240,
+    "creditos_superados": 210,
+    "creditos_superados_compensables": 210,
+    "primer_y_segundo_curso": "Todas las asignaturas superadas",
+    "nota_media": 6.4,
+    "compensadas_anteriormente": [],
+    "pendientes": [
+      {
+        "asignatura": "Estado Sólido y Materiales",
+        "curso": 3,
+        "ects": 6,
+        "matriculada_2026_2027": true,
+        "convocatorias": [
+          {"curso": "2024/2025", "convocatoria": "ordinaria", "nota": 1.5},
+          {"curso": "2024/2025", "convocatoria": "extraordinaria", "nota": 1.2},
+          {"curso": "2025/2026", "convocatoria": "ordinaria", "nota": 4.1}
+        ]
+      },
+      {"asignatura": "Prácticas Externas", "curso": 4, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []},
+      {"asignatura": "Trabajo Fin de Grado", "curso": 4, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []}
+    ],
+    "superadas_relevantes": [
+      {"asignatura": "Proyectos de Ingeniería", "nota": 6.8, "compensada": false}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "desestimar",
+    "norma_aplicable": {
+      "normas": [
+        "Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 5 de diciembre de 2018)",
+        "Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática (Rev. 06, BOULPGC de 27 de enero de 2023)",
+        "Listado de Asignaturas No Compensables de la EII (Rev. 04, 5 de mayo de 2023)"
+      ],
+      "motivo": "La solicitud se presenta el 9 de diciembre de 2026, en la ventana de la convocatoria especial. El Reglamento 1/2026 entra en vigor en la convocatoria ordinaria del curso 2026/2027 (disposición final), así que todavía no se aplica."
+    },
+    "organo": "Comisión de Compensación de la Escuela de Ingeniería Informática",
+    "recurso": "Alzada ante el Vicerrector con competencias en materia de estudiantes, Presidente de la Comisión de Compensación Central, en el plazo de un mes (art. 5 bis.1 del Reglamento de 2018; arts. 121 y 122 de la Ley 39/2015)",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Plazos de evaluación compensatoria de la EII 2026-2027; art. 6 del Reglamento de la EII", "cumple": true, "motivo": "Presentada el 9 de diciembre, dentro del plazo del 2 al 16 de diciembre de 2026."},
+      {"requisito": "Titulación de grado", "norma": "Art. 1 del Reglamento de la EII", "cumple": true, "motivo": "Es un grado oficial, no un máster, título propio ni curso de adaptación."},
+      {"requisito": "85 % de los créditos compensables", "norma": "Art. 4.a del Reglamento de la EII; Listado de Asignaturas No Compensables", "cumple": true, "motivo": "La titulación tiene 216 créditos compensables y se exigen 184; ha superado 210."},
+      {"requisito": "Matrícula en la asignatura", "norma": "Art. 4.b del Reglamento de la EII", "cumple": true, "motivo": "Matriculada en Estado Sólido y Materiales en el curso 2026/2027."},
+      {"requisito": "Nota de 2 o más en al menos dos convocatorias, o nota media de 6,5 o más", "norma": "Arts. 4.c y 4.d del Reglamento de la EII", "cumple": false, "motivo": "Solo una de las tres convocatorias tiene nota de 2 o más (1,5, 1,2 y 4,1), y la nota media de 6,4 no llega al 6,5 que permite examinarla por excepción."},
+      {"requisito": "Primer y segundo curso superados", "norma": "Art. 4.e del Reglamento de la EII", "cumple": true, "motivo": "Tiene superadas todas las asignaturas de primer y segundo curso."},
+      {"requisito": "Asignatura compensable", "norma": "Art. 5 del Reglamento de la EII; Listado de Asignaturas No Compensables", "cumple": true, "motivo": "En este grado solo son no compensables las Prácticas Externas y el TFG. La pareja Estado Sólido y Materiales + Proyectos de Ingeniería no puede compensarse por un mismo estudiante, pero Proyectos de Ingeniería está superada sin compensación."},
+      {"requisito": "Límite del 6 % de la titulación", "norma": "Art. 3 del Reglamento de la EII", "cumple": true, "motivo": "El 6 % de 240 son 14,4 créditos; solicita 6 y no tiene otras asignaturas compensadas."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 22 DE DICIEMBRE DE 2026 DE LA COMISIÓN DE COMPENSACIÓN DE LA ESCUELA DE INGENIERÍA INFORMÁTICA POR LA QUE SE RESUELVE LA SOLICITUD DE EVALUACIÓN COMPENSATORIA DE DOÑA LAURA MÉNDEZ SUÁREZ",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por doña Laura Méndez Suárez, con DNI 12345678Z, con fecha 9 de diciembre de 2026, mediante la que solicita la evaluación compensatoria de la asignatura Estado Sólido y Materiales (6 ECTS) del Grado en Ingeniería Física y Matemática, resultan los siguientes",
+      "HECHOS",
+      "Primero.- La solicitud se presentó dentro del plazo abierto para las solicitudes vinculadas a la convocatoria especial del curso 2026/2027, del 2 al 16 de diciembre de 2026.",
+      "Segundo.- Según su expediente académico, la interesada ha superado 210 de los 216 créditos susceptibles de compensación de la titulación, tiene superadas todas las asignaturas de primer y segundo curso y está matriculada en la asignatura en el curso 2026/2027.",
+      "Tercero.- La interesada se ha presentado a tres convocatorias de la asignatura, con calificaciones de 1,5 (ordinaria de 2024/2025), 1,2 (extraordinaria de 2024/2025) y 4,1 (ordinaria de 2025/2026). La nota media de su expediente es de 6,4 puntos. No tiene asignaturas compensadas con anterioridad.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- El Reglamento 1/2026, de Evaluación Compensatoria de Asignaturas para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 3 de julio de 2026), entra en vigor en la convocatoria ordinaria del curso 2026/2027, según su disposición final. A las solicitudes vinculadas a la convocatoria especial les son de aplicación el Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 5 de diciembre de 2018) y el Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática (BOULPGC de 27 de enero de 2023).",
+      "Segundo.- La interesada ha superado 210 de los 216 créditos susceptibles de compensación de la titulación, más de los 184 que exige el artículo 4.a del Reglamento del Centro; está matriculada en la asignatura y curso de los que solicita la compensación (artículo 4.b) y tiene superadas todas las asignaturas de los dos primeros cursos (artículo 4.e).",
+      "Tercero.- El artículo 4.c del Reglamento del Centro exige haber obtenido una calificación igual o superior a 2 puntos en al menos dos convocatorias de la asignatura. La interesada solo la ha obtenido en una de las tres (4,1); en las otras dos obtuvo 1,5 y 1,2.",
+      "Cuarto.- El artículo 4.d permite examinar la solicitud de forma excepcional y motivada, aun sin la nota mínima, si la nota media del expediente es igual o superior a 6,5 puntos. La nota media de la interesada es de 6,4, por lo que no procede aplicar la excepción.",
+      "Quinto.- Al no reunir todos los requisitos del artículo 4, la solicitud no puede ser objeto de estudio, no procede requerir el informe del coordinador de la asignatura (artículo 7) y la Comisión debe denegar la compensación (artículo 8), con indicación del requisito incumplido (artículo 9).",
+      "En virtud de lo expuesto, esta Comisión, en uso de las competencias atribuidas por el artículo 2 del Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC y por los artículos 2 y 8 del Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática,",
+      "RESUELVE:",
+      "Denegar a doña Laura Méndez Suárez la evaluación compensatoria de la asignatura Estado Sólido y Materiales (6 ECTS) del Grado en Ingeniería Física y Matemática, por no haber obtenido una calificación igual o superior a 2 puntos en al menos dos convocatorias de la asignatura (artículo 4.c del Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática) ni tener una nota media de expediente de 6,5 puntos o más (artículo 4.d).",
+      "Contra la presente resolución, que no agota la vía administrativa, podrá interponerse recurso de alzada ante el Vicerrector con competencias en materia de estudiantes, Presidente de la Comisión de Compensación Central, en el plazo de un mes contado a partir del día siguiente al de su notificación, de conformidad con el artículo 5 bis.1 del Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC y los artículos 121 y 122 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, sin perjuicio de cualquier otro recurso que se estime procedente.",
+      "Las Palmas de Gran Canaria, a 22 de diciembre de 2026.",
+      "EL/LA PRESIDENTE/A DE LA COMISIÓN DE COMPENSACIÓN DE LA ESCUELA DE INGENIERÍA INFORMÁTICA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

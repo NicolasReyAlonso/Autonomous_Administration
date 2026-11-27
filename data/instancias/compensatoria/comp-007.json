@@ -1,0 +1,86 @@
+{
+  "id": "comp-007",
+  "tramite": "evaluacion_compensatoria",
+  "ficha_sia": "2890455",
+  "notas_caso": "Estudiante de máster que pide la compensatoria en la convocatoria especial. El Reglamento de la EII (art. 1) y el de la ULPGC de 2018 (art. 1.2) excluyen los másteres, y también el 1/2026 (art. 1.2): se inadmite sin estudiar requisitos. La asignatura y los créditos del máster son inventados; el caso solo depende de la titulación.",
+  "instancia": {
+    "procedimiento": "Evaluación compensatoria de titulaciones de grado (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-12-10",
+    "solicitante": {
+      "nombre": "Carlos Afonso Rivero",
+      "dni": "11111111H",
+      "correo": "carlos.afonso102@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Dirección de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de evaluación compensatoria",
+    "expone": "Que soy estudiante del Máster Universitario en Ingeniería Informática y estoy matriculado en el curso 2026/2027 en la asignatura Planificación y Gestión de Proyectos Informáticos, a la que me he presentado en dos convocatorias sin superarla. Que solo me quedan pendientes esta asignatura y el Trabajo Fin de Máster, y que cumplo los requisitos del Reglamento de Evaluación Compensatoria.",
+    "solicita": "Que se me conceda la evaluación compensatoria de la asignatura Planificación y Gestión de Proyectos Informáticos (6 ECTS).",
+    "documentacion": [
+      {
+        "nombre": "Solicitud de evaluación compensatoria (formulario de la EII)",
+        "contenido": "D. Carlos Afonso Rivero, con DNI 11111111H, estudiante del Máster Universitario en Ingeniería Informática, solicita la compensación de las asignaturas listadas en la tabla adjunta, declarando conocer la reglamentación vigente y cumplir los requisitos que en ella se exigen. Asignatura: Planificación y Gestión de Proyectos Informáticos."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Máster Universitario en Ingeniería Informática",
+    "centro": "Escuela de Ingeniería Informática",
+    "creditos_titulacion": 90,
+    "creditos_superados": 72,
+    "nota_media": 7.1,
+    "compensadas_anteriormente": [],
+    "pendientes": [
+      {
+        "asignatura": "Planificación y Gestión de Proyectos Informáticos",
+        "curso": 1,
+        "ects": 6,
+        "matriculada_2026_2027": true,
+        "convocatorias": [
+          {"curso": "2025/2026", "convocatoria": "ordinaria", "nota": 3.2},
+          {"curso": "2025/2026", "convocatoria": "extraordinaria", "nota": 3.9}
+        ]
+      },
+      {"asignatura": "Trabajo Fin de Máster", "curso": 2, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "inadmitir",
+    "norma_aplicable": {
+      "normas": [
+        "Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 5 de diciembre de 2018)",
+        "Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática (Rev. 06, BOULPGC de 27 de enero de 2023)"
+      ],
+      "motivo": "Presentada el 10 de diciembre de 2026, en el plazo de la convocatoria especial: rige el régimen de 2018. Ninguno de los dos reglamentos (ni el 1/2026) se aplica a los másteres."
+    },
+    "organo": "Comisión de Compensación de la Escuela de Ingeniería Informática",
+    "recurso": "Alzada ante el Vicerrector con competencias en materia de estudiantes, Presidente de la Comisión de Compensación Central, en el plazo de un mes (art. 5 bis.1 del Reglamento de 2018; arts. 121 y 122 de la Ley 39/2015)",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Plazos de evaluación compensatoria de la EII 2026-2027; art. 6 del Reglamento de la EII", "cumple": true, "motivo": "Presentada el 10 de diciembre, dentro del plazo del 2 al 16 de diciembre de 2026."},
+      {"requisito": "Titulación de grado", "norma": "Art. 1 del Reglamento de la EII; art. 1.2 del Reglamento de la ULPGC de 2018", "cumple": false, "motivo": "Es un máster oficial: la evaluación compensatoria no se aplica a los títulos de Máster."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 22 DE DICIEMBRE DE 2026 DE LA COMISIÓN DE COMPENSACIÓN DE LA ESCUELA DE INGENIERÍA INFORMÁTICA POR LA QUE SE INADMITE LA SOLICITUD DE EVALUACIÓN COMPENSATORIA DE DON CARLOS AFONSO RIVERO",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por don Carlos Afonso Rivero, con DNI 11111111H, con fecha 10 de diciembre de 2026, mediante la que solicita la evaluación compensatoria de la asignatura Planificación y Gestión de Proyectos Informáticos (6 ECTS) del Máster Universitario en Ingeniería Informática, resultan los siguientes",
+      "HECHOS",
+      "Primero.- La solicitud se presentó dentro del plazo abierto para las solicitudes vinculadas a la convocatoria especial del curso 2026/2027, del 2 al 16 de diciembre de 2026.",
+      "Segundo.- El interesado está matriculado en el Máster Universitario en Ingeniería Informática, titulación oficial de máster que se imparte en la Escuela de Ingeniería Informática.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- El Reglamento 1/2026, de Evaluación Compensatoria de Asignaturas para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 3 de julio de 2026), entra en vigor en la convocatoria ordinaria del curso 2026/2027, según su disposición final. A las solicitudes vinculadas a la convocatoria especial les son de aplicación el Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 5 de diciembre de 2018) y el Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática (BOULPGC de 27 de enero de 2023).",
+      "Segundo.- El artículo 1 del Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática limita su objeto a las titulaciones oficiales de Grado y dispone que la evaluación compensatoria no es de aplicación en los títulos de Máster. En el mismo sentido, el artículo 1.2 del Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC excluye los másteres, y también lo hace el artículo 1.2 del Reglamento 1/2026, que se aplicará desde la convocatoria ordinaria del curso 2026/2027.",
+      "Tercero.- La petición se refiere a un procedimiento que la normativa no prevé para la titulación que cursa el interesado, por lo que procede su inadmisión sin entrar en el estudio de los requisitos (artículo 88.5 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas).",
+      "En virtud de lo expuesto, esta Comisión, en uso de las competencias atribuidas por el artículo 2 del Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC y por los artículos 2 y 8 del Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática,",
+      "RESUELVE:",
+      "Inadmitir la solicitud de evaluación compensatoria de la asignatura Planificación y Gestión de Proyectos Informáticos presentada por don Carlos Afonso Rivero, por no ser de aplicación la evaluación compensatoria en los títulos de Máster (artículo 1 del Reglamento de Evaluación Compensatoria de la Escuela de Ingeniería Informática).",
+      "Contra la presente resolución, que no agota la vía administrativa, podrá interponerse recurso de alzada ante el Vicerrector con competencias en materia de estudiantes, Presidente de la Comisión de Compensación Central, en el plazo de un mes contado a partir del día siguiente al de su notificación, de conformidad con el artículo 5 bis.1 del Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC y los artículos 121 y 122 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, sin perjuicio de cualquier otro recurso que se estime procedente.",
+      "Las Palmas de Gran Canaria, a 22 de diciembre de 2026.",
+      "EL/LA PRESIDENTE/A DE LA COMISIÓN DE COMPENSACIÓN DE LA ESCUELA DE INGENIERÍA INFORMÁTICA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

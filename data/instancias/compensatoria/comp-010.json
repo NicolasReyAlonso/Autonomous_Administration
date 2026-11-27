@@ -1,0 +1,103 @@
+{
+  "id": "comp-010",
+  "tramite": "evaluacion_compensatoria",
+  "ficha_sia": "2890455",
+  "variante_de": "comp-009",
+  "notas_caso": "Par de comp-009: solo se ha presentado a dos convocatorias (falta la extraordinaria de 2025/2026). El Reglamento 1/2026 exige tres (art. 4.3), aunque tenga un 3,2 y media de 6,2: se deniega. No es el caso excepcional del art. 5.1 (séptima convocatoria agotada). Con la norma de 2018 habría bastado con dos convocatorias con 2 o más.",
+  "instancia": {
+    "procedimiento": "Evaluación compensatoria de titulaciones de grado (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2027-01-13",
+    "solicitante": {
+      "nombre": "Daniel Ojeda Santana",
+      "dni": "22222222J",
+      "correo": "daniel.ojeda103@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Dirección de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de evaluación compensatoria",
+    "expone": "Que soy estudiante del Grado en Ingeniería Física y Matemática y estoy matriculado en el curso 2026/2027 en la asignatura Termodinámica, que no he conseguido superar. Que me quedan pendientes para terminar la titulación esta asignatura, las Prácticas Externas y el Trabajo Fin de Grado, y que cumplo los requisitos del Reglamento de Evaluación Compensatoria.",
+    "solicita": "Que se me conceda la evaluación compensatoria de la asignatura Termodinámica (6 ECTS).",
+    "documentacion": [
+      {
+        "nombre": "Solicitud de evaluación compensatoria (formulario de la EII)",
+        "contenido": "D. Daniel Ojeda Santana, con DNI 22222222J, estudiante del Grado en Ingeniería Física y Matemática, solicita la compensación de las asignaturas listadas en la tabla adjunta, declarando conocer la reglamentación vigente y cumplir los requisitos que en ella se exigen. Asignatura: Termodinámica."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Física y Matemática (Plan 40)",
+    "centro": "Escuela de Ingeniería Informática",
+    "creditos_titulacion": 240,
+    "creditos_superados": 210,
+    "creditos_superados_compensables": 210,
+    "primer_y_segundo_curso": "Superadas todas salvo Termodinámica",
+    "nota_media": 6.2,
+    "compensadas_anteriormente": [],
+    "pendientes": [
+      {
+        "asignatura": "Termodinámica",
+        "curso": 2,
+        "ects": 6,
+        "matriculada_2026_2027": true,
+        "convocatorias": [
+          {"curso": "2023/2024", "convocatoria": "ordinaria", "nota": 2.4},
+          {"curso": "2024/2025", "convocatoria": "ordinaria", "nota": 3.2}
+        ]
+      },
+      {"asignatura": "Prácticas Externas", "curso": 4, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []},
+      {"asignatura": "Trabajo Fin de Grado", "curso": 4, "ects": 12, "matriculada_2026_2027": true, "convocatorias": []}
+    ],
+    "superadas_relevantes": []
+  },
+  "informes": [],
+  "gold": {
+    "decision": "desestimar",
+    "norma_aplicable": {
+      "normas": [
+        "Reglamento 1/2026, de Evaluación Compensatoria de Asignaturas para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 3 de julio de 2026)",
+        "Relación de asignaturas no compensables aprobada por la Junta de la Escuela de Ingeniería Informática el 13 de julio de 2026 (Tabla resumen de la evaluación compensatoria de la EII)",
+        "Plazos de evaluación compensatoria de la EII, curso 2026/2027"
+      ],
+      "motivo": "La solicitud se presenta el 13 de enero de 2027, en el plazo de la convocatoria ordinaria, abierto durante todo el curso desde el 8 de enero de 2027. El Reglamento 1/2026 entra en vigor en la convocatoria ordinaria del curso 2026/2027 (disposición final) y deroga el reglamento de 2018 y los de los Centros (disposición derogatoria): la EII lo aplica a las solicitudes presentadas desde el 8 de enero de 2027, y el reglamento de la EII y el Listado de 2023 ya no se aplican."
+    },
+    "organo": "Director de la Escuela de Ingeniería Informática",
+    "recurso": "Alzada ante el Rector o el Vicerrector en quien delegue, en el plazo de un mes (arts. 6.2 y 7.3 del Reglamento 1/2026; arts. 121 y 122 de la Ley 39/2015)",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Plazos de evaluación compensatoria de la EII 2026-2027; art. 7.1 del Reglamento 1/2026", "cumple": true, "motivo": "Presentada el 13 de enero de 2027, en el plazo abierto todo el curso desde el 8 de enero de 2027."},
+      {"requisito": "Titulación de grado", "norma": "Art. 1 del Reglamento 1/2026", "cumple": true, "motivo": "Es un grado oficial; no es estudiantado de movilidad entrante, de homologación, de máster ni de título propio."},
+      {"requisito": "75 % de los créditos de la titulación", "norma": "Art. 4.1 del Reglamento 1/2026; Tabla resumen de la EII", "cumple": true, "motivo": "Ha superado 210 de 240 créditos; se exigen 180."},
+      {"requisito": "Matrícula en la asignatura", "norma": "Art. 4.2 del Reglamento 1/2026", "cumple": true, "motivo": "Tiene matrícula en la asignatura en el curso 2026/2027."},
+      {"requisito": "Presentado al menos a tres convocatorias", "norma": "Art. 4.3 del Reglamento 1/2026", "cumple": false, "motivo": "Solo dos convocatorias: ordinaria de 2023/2024 y ordinaria de 2024/2025."},
+      {"requisito": "Al menos un 3,00 en alguna convocatoria", "norma": "Art. 4.3 del Reglamento 1/2026", "cumple": true, "motivo": "3,2 en la ordinaria de 2024/2025."},
+      {"requisito": "Nota media de 6,00 o más", "norma": "Art. 4.3 del Reglamento 1/2026", "cumple": true, "motivo": "Nota media de 6,2."},
+      {"requisito": "Asignatura compensable", "norma": "Arts. 2 y 3.3-3.4 del Reglamento 1/2026; relación de la Junta de Escuela de 13-07-26", "cumple": true, "motivo": "Termodinámica no es PE ni TFG y no está en la relación de no compensables del GIFM-40 aprobada el 13-07-26."},
+      {"requisito": "Límite de 15 ECTS en grados de 240 créditos", "norma": "Art. 3.2 del Reglamento 1/2026", "cumple": true, "motivo": "Solicita 6 ECTS y no tiene otras asignaturas compensadas."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 3 DE FEBRERO DE 2027 DEL DIRECTOR DE LA ESCUELA DE INGENIERÍA INFORMÁTICA POR LA QUE SE RESUELVE LA SOLICITUD DE EVALUACIÓN COMPENSATORIA DE DON DANIEL OJEDA SANTANA",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por don Daniel Ojeda Santana, con DNI 22222222J, con fecha 13 de enero de 2027, mediante la que solicita la evaluación compensatoria de la asignatura Termodinámica (6 ECTS) del Grado en Ingeniería Física y Matemática, resultan los siguientes",
+      "HECHOS",
+      "Primero.- La solicitud se presentó en el plazo para las solicitudes vinculadas a la convocatoria ordinaria del curso 2026/2027, abierto durante todo el curso académico a partir del 8 de enero de 2027.",
+      "Segundo.- Según su expediente académico, el interesado ha superado 210 de los 240 créditos de la titulación y está matriculado en la asignatura en el curso 2026/2027. Además de esta asignatura, le quedan pendientes las Prácticas Externas y el Trabajo Fin de Grado.",
+      "Tercero.- El interesado se ha presentado a dos convocatorias de la asignatura, con calificaciones de 2,4 (ordinaria de 2023/2024) y 3,2 (ordinaria de 2024/2025). La nota media de su expediente es de 6,2 puntos. No tiene asignaturas compensadas con anterioridad.",
+      "Cuarto.- La Administración del Edificio de Informática y Matemáticas ha revisado el cumplimiento de los requisitos, conforme al artículo 6.1 del Reglamento 1/2026.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- El Reglamento 1/2026, de Evaluación Compensatoria de Asignaturas para las Titulaciones Oficiales de Grado de la ULPGC (BOULPGC de 3 de julio de 2026), entra en vigor en la convocatoria ordinaria del curso 2026/2027, según su disposición final, y deroga el Reglamento de Evaluación Compensatoria para las Titulaciones Oficiales de Grado de la ULPGC de 2018 y los reglamentos de Centros elaborados en aplicación de este (disposición derogatoria). La Escuela de Ingeniería Informática lo aplica a las solicitudes vinculadas a la convocatoria ordinaria, que pueden presentarse durante todo el curso académico a partir del 8 de enero de 2027 (artículo 7.1).",
+      "Segundo.- El interesado ha superado 210 créditos, más del 75 % de los 240 de la titulación (180), como exige el artículo 4.1 del Reglamento, y está matriculado en la asignatura y curso de los que solicita la compensación (artículo 4.2). La asignatura es compensable: termodinámica no es una asignatura de prácticas académicas externas ni de trabajo de fin de grado (artículo 3.3) ni figura en la relación de asignaturas no compensables del Grado en Ingeniería Física y Matemática aprobada por la Junta de Escuela el 13 de julio de 2026 (artículo 3.4), y los 6 créditos solicitados no superan el límite de 15 ECTS de las titulaciones de 240 créditos (artículo 3.2).",
+      "Tercero.- El artículo 4.3 exige cumplir todas las condiciones siguientes: haberse presentado al menos a tres convocatorias de la asignatura, en ordinaria o extraordinaria; haber obtenido al menos un 3,00 en alguna; y tener una nota media de expediente igual o superior a 6,00. El interesado solo se ha presentado a dos convocatorias, por lo que no cumple la primera condición, aunque obtuvo un 3,2 en una de ellas y su nota media es de 6,2.",
+      "Cuarto.- Tampoco es de aplicación el caso excepcional del artículo 5.1, previsto para quien ha agotado la séptima convocatoria o, en su caso, la sexta sin resolución favorable para presentarse a una séptima.",
+      "Quinto.- Según el artículo 7.2 del Reglamento, las resoluciones desfavorables contendrán los motivos de la denegación e indicarán que contra ellas cabe interponer recurso de alzada.",
+      "En virtud de lo expuesto, este Director, en uso de las competencias atribuidas por el artículo 6.1 del Reglamento 1/2026, de Evaluación Compensatoria de Asignaturas para las Titulaciones Oficiales de Grado de la ULPGC,",
+      "RESUELVE:",
+      "Denegar a don Daniel Ojeda Santana la evaluación compensatoria de la asignatura Termodinámica (6 ECTS) del Grado en Ingeniería Física y Matemática, por no haberse presentado al menos a tres convocatorias de la asignatura (artículo 4.3 del Reglamento 1/2026).",
+      "Contra la presente resolución, que no agota la vía administrativa, podrá interponerse recurso de alzada ante el Rector de la Universidad de Las Palmas de Gran Canaria o el Vicerrector en quien delegue, en el plazo de un mes contado a partir del día siguiente al de su notificación, de conformidad con los artículos 6.2 y 7.3 del Reglamento 1/2026, de Evaluación Compensatoria de Asignaturas para las Titulaciones Oficiales de Grado de la ULPGC, y los artículos 121 y 122 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, sin perjuicio de cualquier otro recurso que se estime procedente.",
+      "Las Palmas de Gran Canaria, a 3 de febrero de 2027.",
+      "EL DIRECTOR DE LA ESCUELA DE INGENIERÍA INFORMÁTICA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}
