@@ -1,0 +1,92 @@
+{
+  "id": "sep-001",
+  "tramite": "septima_convocatoria",
+  "ficha_sia": "2897040",
+  "notas_caso": "Caso base: seis convocatorias calificadas (2,0 a 4,6, siempre al alza) de Estructura de Computadores, que es lo único que le queda junto con las Prácticas Externas y el TFG. La petición está motivada y acredita una hospitalización tres días antes de la sexta convocatoria. La Comisión de Permanencia la autoriza tras el estudio individualizado (decisión discrecional: el gold recoge una motivación razonable, no la única posible).",
+  "instancia": {
+    "procedimiento": "Solicitud de séptima convocatoria (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-09-10",
+    "solicitante": {
+      "nombre": "Andrea Santana Vega",
+      "dni": "55555555K",
+      "correo": "andrea.santana106@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Comisión de Permanencia de la ULPGC",
+    "asunto": "Solicitud de séptima convocatoria",
+    "expone": "Que he agotado las seis convocatorias de la asignatura Estructura de Computadores sin superarla, con calificaciones que han mejorado en cada una, de 2,0 a 4,6. Que del 3 al 6 de julio de 2026 estuve hospitalizada, tres días antes del examen de la convocatoria extraordinaria del 9 de julio, al que me presenté igualmente. Que solo me quedan pendientes esta asignatura, las Prácticas Externas y el Trabajo Fin de Grado.",
+    "solicita": "Que se me autorice una séptima convocatoria de la asignatura Estructura de Computadores en el curso 2026/2027.",
+    "documentacion": [
+      {
+        "nombre": "Informe de alta hospitalaria",
+        "contenido": "Ingreso hospitalario de doña Andrea Santana Vega del 3 al 6 de julio de 2026 por apendicitis aguda, con indicación de reposo durante la semana siguiente al alta."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "dedicacion": "Tiempo completo",
+    "creditos_titulacion": 240,
+    "creditos_superados": 210,
+    "nota_media": 6.3,
+    "pendientes": [
+      {
+        "asignatura": "Estructura de Computadores",
+        "codigo": "40959",
+        "curso": 1,
+        "ects": 6,
+        "convocatorias": [
+          {"curso": "2023/2024", "convocatoria": "ordinaria", "nota": 2.0},
+          {"curso": "2023/2024", "convocatoria": "extraordinaria", "nota": 2.8},
+          {"curso": "2024/2025", "convocatoria": "ordinaria", "nota": 3.1},
+          {"curso": "2024/2025", "convocatoria": "extraordinaria", "nota": 3.5},
+          {"curso": "2025/2026", "convocatoria": "ordinaria", "nota": 4.0},
+          {"curso": "2025/2026", "convocatoria": "extraordinaria", "nota": 4.6}
+        ]
+      },
+      {"asignatura": "Prácticas Externas", "curso": 4, "ects": 12, "convocatorias": []},
+      {"asignatura": "Trabajo Fin de Grado", "curso": 4, "ects": 12, "convocatorias": []}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "estimar",
+    "norma_aplicable": {
+      "normas": [
+        "Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC (aprobadas el 17 de octubre de 2024, modificadas por el Pleno del Consejo Social el 2 de abril de 2025): arts. 10, 16 y 18 y disposición transitoria tercera"
+      ],
+      "motivo": "Texto vigente desde la modificación de 2 de abril de 2025; el texto original de 2024 no se aplica."
+    },
+    "organo": "Comisión de Permanencia de la ULPGC",
+    "recurso": "Alzada ante el Consejo Social, en el plazo de un mes desde el día siguiente a su comunicación (art. 18 de las Normas de Progreso y Permanencia; arts. 121 y 122 de la Ley 39/2015)",
+    "requisitos": [
+      {"requisito": "Seis convocatorias agotadas", "norma": "Arts. 10.1 y 10.3 y disposición transitoria tercera de las Normas de Progreso y Permanencia", "cumple": true, "motivo": "Seis convocatorias calificadas, ninguna como no presentado."},
+      {"requisito": "Petición motivada", "norma": "Art. 10.3 de las Normas de Progreso y Permanencia", "cumple": true, "motivo": "Expone su trayectoria, la hospitalización previa a la sexta convocatoria y que es su última asignatura salvo PE y TFG, y lo acredita con el informe de alta."},
+      {"requisito": "Estudio individualizado", "norma": "Art. 10.3 de las Normas de Progreso y Permanencia", "cumple": true, "motivo": "Calificaciones crecientes, circunstancia sobrevenida acreditada y 210 de 240 créditos superados."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 8 DE OCTUBRE DE 2026 DE LA COMISIÓN DE PERMANENCIA DE LA UNIVERSIDAD DE LAS PALMAS DE GRAN CANARIA POR LA QUE SE RESUELVE LA SOLICITUD DE SÉPTIMA CONVOCATORIA DE DOÑA ANDREA SANTANA VEGA",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por doña Andrea Santana Vega, con DNI 55555555K, con fecha 10 de septiembre de 2026, mediante la que solicita una séptima convocatoria de la asignatura Estructura de Computadores (40959) del Grado en Ingeniería Informática (Plan 41), resultan los siguientes",
+      "HECHOS",
+      "Primero.- La interesada ha agotado las seis convocatorias de la asignatura, todas ellas calificadas: 2,0 y 2,8 en el curso 2023/2024, 3,1 y 3,5 en el curso 2024/2025, y 4,0 y 4,6 en el curso 2025/2026.",
+      "Segundo.- Según su expediente académico, ha superado 210 de los 240 créditos de la titulación y solo le quedan pendientes esta asignatura, las Prácticas Externas y el Trabajo Fin de Grado.",
+      "Tercero.- La interesada motiva su petición en la mejora continuada de sus calificaciones y en que estuvo hospitalizada del 3 al 6 de julio de 2026, tres días antes del examen de la convocatoria extraordinaria del 9 de julio, lo que acredita con el informe de alta hospitalaria.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- El artículo 10.1 de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC dispone que el estudiantado dispondrá de seis convocatorias para superar cada asignatura y que, cuando en el acta el estudiante sea calificado como «no presentado», no se computará la convocatoria. Según la disposición transitoria tercera, en cada asignatura solo constan las convocatorias efectivamente calificadas.",
+      "Segundo.- El artículo 10.3 permite al estudiante que haya agotado las seis convocatorias solicitar una séptima, que será autorizada por la Comisión de Permanencia de la ULPGC; la petición debe ser motivada y su concesión, objeto de estudio individualizado.",
+      "Tercero.- La interesada ha agotado seis convocatorias calificadas y su petición está motivada y documentada. Estudiado su caso, su trayectoria en la asignatura es ascendente, la última convocatoria se vio afectada por una circunstancia sobrevenida debidamente acreditada y la asignatura es, junto con las Prácticas Externas y el Trabajo Fin de Grado, la última que le queda para finalizar la titulación, por lo que procede autorizar la séptima convocatoria.",
+      "En virtud de lo expuesto, esta Comisión, en uso de las competencias atribuidas por los artículos 10.3 y 16.a) de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC,",
+      "RESUELVE:",
+      "Autorizar a doña Andrea Santana Vega una séptima convocatoria de la asignatura Estructura de Computadores (40959) del Grado en Ingeniería Informática, de la que podrá hacer uso en el curso académico 2026/2027. Conforme al artículo 10.1, podrá solicitar ser evaluada por el tribunal nombrado para la asignatura por la Escuela de Ingeniería Informática.",
+      "Contra la presente resolución podrá interponerse recurso de alzada ante el Consejo Social de la Universidad de Las Palmas de Gran Canaria en el plazo de un mes a contar desde el día siguiente a su comunicación, de conformidad con el artículo 18 de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC y los artículos 121 y 122 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, sin perjuicio de cualquier otro recurso que se estime procedente.",
+      "Las Palmas de Gran Canaria, a 8 de octubre de 2026.",
+      "EL/LA PRESIDENTE/A DE LA COMISIÓN DE PERMANENCIA DE LA UNIVERSIDAD DE LAS PALMAS DE GRAN CANARIA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

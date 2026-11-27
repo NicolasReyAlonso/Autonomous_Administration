@@ -1,0 +1,79 @@
+{
+  "id": "fa-003",
+  "tramite": "fecha_alternativa_examen",
+  "ficha_sia": null,
+  "variante_de": "fa-001",
+  "notas_caso": "Variante de fa-001: los dos exámenes son el mismo día pero no coinciden (9:00-11:00 y 15:30-18:30). Entre el final de uno y el comienzo del otro hay cuatro horas y media, y son solo dos pruebas finales ese día: no hay derecho a fecha alternativa. La solicitud está en plazo. El calendario de exámenes es ficticio.",
+  "instancia": {
+    "procedimiento": "Solicitud de fecha alternativa de examen por coincidencia de pruebas (art. 58 del Reglamento de Régimen Interno de la EII)",
+    "registro": "Correo electrónico institucional al profesorado de la asignatura",
+    "fecha_presentacion": "2027-01-14",
+    "solicitante": {
+      "nombre": "Marta Hernández Peña",
+      "dni": "33333333P",
+      "correo": "marta.hernandez104@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Profesorado de la asignatura Redes de computadores",
+    "asunto": "Solicitud de fecha alternativa de examen",
+    "expone": "Que estoy matriculada en Métodos Numéricos (2.º curso) y en Redes de computadores (3.er curso) del Grado en Ingeniería Informática, y que los exámenes finales de la convocatoria ordinaria de las dos asignaturas están fijados el mismo día, el 25 de enero de 2027.",
+    "solicita": "Que se me facilite una fecha alternativa para el examen final de Redes de computadores.",
+    "documentacion": [],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "matricula_2026_2027": [
+      {"asignatura": "Métodos Numéricos", "curso": 2},
+      {"asignatura": "Redes de computadores", "curso": 3},
+      {"asignatura": "Administración de sistemas operativos", "curso": 3},
+      {"asignatura": "Base datos II", "curso": 3}
+    ],
+    "calendario_pruebas": [
+      {"asignatura": "Métodos Numéricos", "curso": 2, "prueba": "Examen final, convocatoria ordinaria", "oficial": true, "fecha": "2027-01-25", "inicio": "09:00", "fin": "11:00"},
+      {"asignatura": "Redes de computadores", "curso": 3, "prueba": "Examen final, convocatoria ordinaria", "oficial": true, "fecha": "2027-01-25", "inicio": "15:30", "fin": "18:30"},
+      {"asignatura": "Administración de sistemas operativos", "curso": 3, "prueba": "Examen final, convocatoria ordinaria", "oficial": true, "fecha": "2027-01-29", "inicio": "09:00", "fin": "12:00"}
+    ],
+    "periodo_examenes": "Convocatoria ordinaria del primer semestre 2026/2027: del 11 de enero al 5 de febrero de 2027"
+  },
+  "informes": [],
+  "gold": {
+    "decision": "desestimar",
+    "norma_aplicable": {
+      "normas": [
+        "Reglamento de Régimen Interno de la Escuela de Ingeniería Informática (aprobado por el Consejo de Gobierno el 5 de mayo de 2022), art. 58",
+        "Reglamento de Evaluación de los Resultados de Aprendizaje y de las Competencias adquiridas por el Alumnado de la ULPGC, art. 24",
+        "Acuerdo de 15 de diciembre de 2014 del Director de la EII por el que se establece el plazo para presentar la solicitud de fecha alternativa de examen"
+      ],
+      "motivo": "Normas vigentes sin cambios en el curso 2026/2027."
+    },
+    "organo": "Profesorado de la asignatura Redes de computadores (asignatura del curso superior)",
+    "recurso": "No es una resolución recurrible: la disconformidad se comunica al Director de la EII como incidencia académica, por la Sede Electrónica o el registro del Edificio (Acuerdo de 25 de octubre de 2013)",
+    "requisitos": [
+      {"requisito": "Coincidencia de pruebas finales", "norma": "Reglamento de Régimen Interno de la Escuela de Ingeniería Informática (aprobado por el Consejo de Gobierno el 5 de mayo de 2022), art. 58", "cumple": false, "motivo": "Métodos Numéricos termina a las 11:00 y Redes de computadores empieza a las 15:30: median cuatro horas y media (se exigen menos de cuatro), y la estudiante no tiene más de dos pruebas finales ese día."},
+      {"requisito": "Solicitud al menos cinco días hábiles antes", "norma": "Reglamento de Régimen Interno de la Escuela de Ingeniería Informática (aprobado por el Consejo de Gobierno el 5 de mayo de 2022), art. 58; Acuerdo de 15 de diciembre de 2014 del Director de la EII por el que se establece el plazo para presentar la solicitud de fecha alternativa de examen", "cumple": true, "motivo": "Presentada el 14 de enero de 2027; el plazo terminaba el 18 de enero."}
+    ],
+    "resolucion": [
+      "RESPUESTA DE 19 DE ENERO DE 2027 DEL PROFESORADO DE LA ASIGNATURA REDES DE COMPUTADORES A LA SOLICITUD DE FECHA ALTERNATIVA DE EXAMEN DE DOÑA MARTA HERNÁNDEZ PEÑA",
+      "Vista la solicitud presentada por correo electrónico institucional el 14 de enero de 2027 por doña Marta Hernández Peña, con DNI 33333333P, estudiante del Grado en Ingeniería Informática, mediante la que solicita una fecha alternativa para el examen final de la asignatura Redes de computadores de la convocatoria ordinaria, resultan los siguientes",
+      "HECHOS",
+      "Primero.- Según el calendario oficial de exámenes de la convocatoria ordinaria del primer semestre del curso 2026/2027, el 25 de enero de 2027 se celebran el examen final de Métodos Numéricos, de segundo curso, de 9:00 a 11:00 horas, y el de Redes de computadores, de tercer curso, de 15:30 a 18:30 horas. La interesada no tiene ninguna otra prueba final ese día.",
+      "Segundo.- La interesada está matriculada en las dos asignaturas en el curso 2026/2027.",
+      "Tercero.- La solicitud se presentó el 14 de enero de 2027, dentro del plazo de cinco días hábiles antes de la prueba que establecen el artículo 58 del Reglamento de Régimen Interno y el Acuerdo del Director de la Escuela de 15 de diciembre de 2014.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- El artículo 58 del Reglamento de Régimen Interno de la Escuela de Ingeniería Informática reconoce al estudiante, cuando coinciden el día y la hora de pruebas finales de distintas asignaturas, con menos de cuatro horas entre la finalización de la primera y el comienzo de la siguiente, el derecho a que el profesorado de la asignatura del curso superior le facilite la realización de la prueba final de su asignatura en un día distinto con, al menos, 24 horas de diferencia. En el mismo sentido se pronuncia el artículo 24 del Reglamento de Evaluación de los Resultados de Aprendizaje y de las Competencias adquiridas por el Alumnado de la ULPGC.",
+      "Segundo.- Entre la finalización del examen de Métodos Numéricos y el comienzo del de Redes de computadores median cuatro horas y media, por lo que no se da la coincidencia que exige el artículo 58.",
+      "Tercero.- El mismo artículo dispone que un estudiante no podrá verse obligado a realizar en un mismo día más de dos pruebas finales de distintas asignaturas. La interesada solo tiene dos ese día.",
+      "En virtud de lo expuesto, el profesorado de la asignatura Redes de computadores, en aplicación del artículo 58 del Reglamento de Régimen Interno de la Escuela de Ingeniería Informática,",
+      "ACUERDA:",
+      "Denegar la fecha alternativa solicitada por doña Marta Hernández Peña para el examen final de Redes de computadores, por no coincidir con el de Métodos Numéricos en los términos del artículo 58 del Reglamento de Régimen Interno de la Escuela de Ingeniería Informática. El examen se mantiene el 25 de enero de 2027 a las 15:30 horas.",
+      "Si no está conforme con esta respuesta, podrá comunicarlo como incidencia académica al Director de la Escuela de Ingeniería Informática, mediante instancia presentada a través de la Sede Electrónica de la ULPGC o en el registro de la Administración del Edificio de Informática y Matemáticas, conforme al Acuerdo del Director de 25 de octubre de 2013.",
+      "Las Palmas de Gran Canaria, a 19 de enero de 2027.",
+      "EL/LA PROFESOR/A COORDINADOR/A DE LA ASIGNATURA REDES DE COMPUTADORES",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

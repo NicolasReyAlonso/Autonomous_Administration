@@ -1,0 +1,88 @@
+{
+  "id": "sep-003",
+  "tramite": "septima_convocatoria",
+  "ficha_sia": "2897040",
+  "notas_caso": "El estudiante cree haber agotado seis convocatorias, pero dos figuran como «no presentado» y no computan (art. 10.1; disposición transitoria tercera): lleva cuatro. No se da el presupuesto del art. 10.3 y se deniega, indicándole que aún dispone de dos convocatorias y que desde la quinta puede pedir tribunal. Prueba que el modelo cuente las convocatorias en vez de fiarse de lo que dice la instancia.",
+  "instancia": {
+    "procedimiento": "Solicitud de séptima convocatoria (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-09-11",
+    "solicitante": {
+      "nombre": "Javier Medina Torres",
+      "dni": "66666666Q",
+      "correo": "javier.medina107@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Comisión de Permanencia de la ULPGC",
+    "asunto": "Solicitud de séptima convocatoria",
+    "expone": "Que he agotado las seis convocatorias de la asignatura Fundamentos de los sistemas operativos sin superarla. Que trabajo por las tardes desde 2024, lo que me ha impedido preparar la asignatura como querría, y que en las últimas convocatorias mis notas han mejorado.",
+    "solicita": "Que se me autorice una séptima convocatoria de la asignatura Fundamentos de los sistemas operativos en el curso 2026/2027.",
+    "documentacion": [
+      {
+        "nombre": "Contrato de trabajo",
+        "contenido": "Contrato a tiempo parcial con horario de lunes a viernes de 15:00 a 20:00 horas desde el 1 de marzo de 2024."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "dedicacion": "Tiempo completo",
+    "creditos_titulacion": 240,
+    "creditos_superados": 150,
+    "nota_media": 6.0,
+    "pendientes": [
+      {
+        "asignatura": "Fundamentos de los sistemas operativos",
+        "codigo": "40970",
+        "curso": 2,
+        "ects": 6,
+        "convocatorias": [
+          {"curso": "2023/2024", "convocatoria": "ordinaria", "nota": "No presentado"},
+          {"curso": "2023/2024", "convocatoria": "extraordinaria", "nota": 2.5},
+          {"curso": "2024/2025", "convocatoria": "ordinaria", "nota": 3.1},
+          {"curso": "2024/2025", "convocatoria": "extraordinaria", "nota": "No presentado"},
+          {"curso": "2025/2026", "convocatoria": "ordinaria", "nota": 3.9},
+          {"curso": "2025/2026", "convocatoria": "extraordinaria", "nota": 4.2}
+        ]
+      }
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "desestimar",
+    "norma_aplicable": {
+      "normas": [
+        "Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC (aprobadas el 17 de octubre de 2024, modificadas por el Pleno del Consejo Social el 2 de abril de 2025): arts. 10, 16 y 18 y disposición transitoria tercera"
+      ],
+      "motivo": "Texto vigente desde la modificación de 2 de abril de 2025; el texto original de 2024 no se aplica."
+    },
+    "organo": "Comisión de Permanencia de la ULPGC",
+    "recurso": "Alzada ante el Consejo Social, en el plazo de un mes desde el día siguiente a su comunicación (art. 18 de las Normas de Progreso y Permanencia; arts. 121 y 122 de la Ley 39/2015)",
+    "requisitos": [
+      {"requisito": "Seis convocatorias agotadas", "norma": "Arts. 10.1 y 10.3 y disposición transitoria tercera de las Normas de Progreso y Permanencia", "cumple": false, "motivo": "De las seis convocatorias, la ordinaria de 2023/2024 y la extraordinaria de 2024/2025 figuran como no presentado: solo computan cuatro."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 8 DE OCTUBRE DE 2026 DE LA COMISIÓN DE PERMANENCIA DE LA UNIVERSIDAD DE LAS PALMAS DE GRAN CANARIA POR LA QUE SE RESUELVE LA SOLICITUD DE SÉPTIMA CONVOCATORIA DE DON JAVIER MEDINA TORRES",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por don Javier Medina Torres, con DNI 66666666Q, con fecha 11 de septiembre de 2026, mediante la que solicita una séptima convocatoria de la asignatura Fundamentos de los sistemas operativos (40970) del Grado en Ingeniería Informática (Plan 41), resultan los siguientes",
+      "HECHOS",
+      "Primero.- Según su expediente académico, en las seis convocatorias de la asignatura de los cursos 2023/2024 a 2025/2026 el interesado obtuvo los siguientes resultados: no presentado y 2,5 en el curso 2023/2024; 3,1 y no presentado en el curso 2024/2025; y 3,9 y 4,2 en el curso 2025/2026.",
+      "Segundo.- El interesado motiva su petición en que trabaja por las tardes desde 2024 y en la mejora de sus últimas calificaciones, y aporta su contrato de trabajo.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- El artículo 10.1 de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC dispone que el estudiantado dispondrá de seis convocatorias para superar cada asignatura y que, cuando en el acta el estudiante sea calificado como «no presentado», no se computará la convocatoria. Según la disposición transitoria tercera, en cada asignatura solo constan las convocatorias efectivamente calificadas.",
+      "Segundo.- El artículo 10.3 permite al estudiante que haya agotado las seis convocatorias solicitar una séptima, que será autorizada por la Comisión de Permanencia de la ULPGC; la petición debe ser motivada y su concesión, objeto de estudio individualizado.",
+      "Tercero.- Dos de las convocatorias del interesado figuran como no presentado y no se computan, por lo que solo ha consumido cuatro de las seis de que dispone. Al no haber agotado las seis convocatorias, no concurre el presupuesto del artículo 10.3 y no procede autorizar una séptima.",
+      "Cuarto.- A partir de la quinta convocatoria, el estudiante puede solicitar ser evaluado por un tribunal conforme al reglamento que regula la evaluación del aprendizaje (artículo 10.1).",
+      "En virtud de lo expuesto, esta Comisión, en uso de las competencias atribuidas por los artículos 10.3 y 16.a) de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC,",
+      "RESUELVE:",
+      "Denegar a don Javier Medina Torres la séptima convocatoria de la asignatura Fundamentos de los sistemas operativos (40970), por no haber agotado las seis convocatorias previstas en el artículo 10.1 de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC. El interesado dispone todavía de dos convocatorias para superar la asignatura.",
+      "Contra la presente resolución podrá interponerse recurso de alzada ante el Consejo Social de la Universidad de Las Palmas de Gran Canaria en el plazo de un mes a contar desde el día siguiente a su comunicación, de conformidad con el artículo 18 de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC y los artículos 121 y 122 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, sin perjuicio de cualquier otro recurso que se estime procedente.",
+      "Las Palmas de Gran Canaria, a 8 de octubre de 2026.",
+      "EL/LA PRESIDENTE/A DE LA COMISIÓN DE PERMANENCIA DE LA UNIVERSIDAD DE LAS PALMAS DE GRAN CANARIA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

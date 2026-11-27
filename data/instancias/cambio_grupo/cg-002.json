@@ -1,0 +1,79 @@
+{
+  "id": "cg-002",
+  "tramite": "cambio_grupo",
+  "ficha_sia": "2890472",
+  "notas_caso": "Motivo de preferencia personal (rinde menos por la tarde y sus compañeros están en la mañana), que no está entre las situaciones de las Directrices: se deniega (motivo 1 de la resolución de 2024) aunque haya plazas. Prueba que las vacantes no basten.",
+  "instancia": {
+    "procedimiento": "Cambio de turno o grupo (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-09-30",
+    "solicitante": {
+      "nombre": "Sergio Quintana Díaz",
+      "dni": "88888888Y",
+      "correo": "sergio.quintana109@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Subdirección de Ordenación Académica de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de cambio de turno o grupo",
+    "expone": "Que soy estudiante de tercer curso del Grado en Ingeniería Informática y que por la tarde rindo menos. Además, la mayoría de mis compañeros de clase están en el turno de mañana.",
+    "solicita": "Que se me cambie del grupo de tarde al de mañana en Redes de computadores e Ingeniería del software II.",
+    "documentacion": [
+      {
+        "nombre": "Formulario de solicitud de cambio de grupo de la EII",
+        "contenido": "Cambio del grupo de tarde al grupo de mañana en Redes de computadores e Ingeniería del software II."
+      },
+      {
+        "nombre": "Horario marcando las asignaturas afectadas",
+        "contenido": "Horario del tercer curso del GII con las dos asignaturas marcadas en el turno de tarde."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "curso": 3,
+    "cambios_solicitados": [
+      {"asignatura": "Redes de computadores", "grupo_actual": "tarde", "grupo_solicitado": "mañana", "plazas_libres_destino": 2},
+      {"asignatura": "Ingeniería del software II", "grupo_actual": "tarde", "grupo_solicitado": "mañana", "plazas_libres_destino": 6}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "desestimar",
+    "norma_aplicable": {
+      "normas": [
+        "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023)",
+        "Resolución de 4 de noviembre de 2024 del Subdirector de Ordenación Académica de la EII relativa a las solicitudes de cambio de grupo (motivos de denegación)",
+        "Plazo del trámite de la sede para el primer semestre 2026/2027: del 11 de septiembre al 16 de octubre de 2026"
+      ],
+      "motivo": "Las Directrices de 2023 siguen vigentes; el plazo es el publicado en la ficha de la sede."
+    },
+    "organo": "Subdirección de Ordenación Académica de la Escuela de Ingeniería Informática",
+    "recurso": "Reclamación ante la Dirección del Centro por la Sede Electrónica (Instancia General), del 4 al 11 de noviembre de 2026 (plazo que abre la resolución, como en la de 4 de noviembre de 2024)",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023); ficha del trámite en la sede", "cumple": true, "motivo": "Presentada el 30 de septiembre de 2026, dentro del plazo del 11 de septiembre al 16 de octubre."},
+      {"requisito": "Situación contemplada", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023)", "cumple": false, "motivo": "Alega preferencia personal y la de sus compañeros, que no es ninguna de las situaciones previstas."},
+      {"requisito": "Cambio especificado con claridad", "norma": "Resolución de 4 de noviembre de 2024 del Subdirector de Ordenación Académica de la EII relativa a las solicitudes de cambio de grupo (motivos de denegación)", "cumple": true, "motivo": "Indica asignaturas, grupo actual y grupo de destino."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 3 DE NOVIEMBRE DE 2026 DE LA SUBDIRECCIÓN DE ORDENACIÓN ACADÉMICA DE LA ESCUELA DE INGENIERÍA INFORMÁTICA RELATIVA A LA SOLICITUD DE CAMBIO DE GRUPO DE DON SERGIO QUINTANA DÍAZ",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por don Sergio Quintana Díaz, con DNI 88888888Y, con fecha 30 de septiembre de 2026, mediante la que solicita el cambio del grupo de tarde al de mañana en las asignaturas Redes de computadores e Ingeniería del software II del Grado en Ingeniería Informática, resultan los siguientes",
+      "HECHOS",
+      "Primero.- La Escuela de Ingeniería Informática abrió el plazo de solicitudes de cambio de turno o grupo del primer semestre del curso 2026/2027 del 11 de septiembre al 16 de octubre de 2026, a través de la Sede Electrónica. La solicitud se presentó el 30 de septiembre de 2026.",
+      "Segundo.- El interesado, estudiante de tercer curso, motiva su petición en que por la tarde rinde menos y en que la mayoría de sus compañeros están en el turno de mañana. No alega ni acredita ninguna otra circunstancia.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- Las Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática, aprobadas por la Junta de Escuela el 24 de julio de 2023, solo admiten a estudio las solicitudes que se encuentren en alguna de las situaciones que enumeran: necesidades específicas de apoyo educativo, mantener a la unidad familiar con hijos menores de seis años, tener contrato de trabajo oficial, ser deportista de alto nivel o alto rendimiento, cursar otros estudios oficiales, tener restricciones de horarios de transporte público y, para los cursos distintos del primero, el solapamiento de horarios por cursar asignaturas de cursos diferentes. Cada situación debe acreditarse con la documentación que se indica, y cualquier solicitud no contemplada o no justificada de forma conveniente será desestimada.",
+      "Segundo.- La preferencia por un turno, por rendimiento personal o por coincidir con otros compañeros, no es una de las situaciones previstas en las Directrices, por lo que el interesado no presenta una motivación objetiva que justifique el cambio. Por ello no procede valorar la existencia de vacantes.",
+      "En virtud de lo expuesto, esta Subdirección, responsable de la aplicación y priorización de los criterios establecidos en las citadas Directrices,",
+      "RESUELVE:",
+      "Denegar a don Sergio Quintana Díaz el cambio de grupo solicitado en las asignaturas Redes de computadores e Ingeniería del software II, por no presentar una motivación objetiva que lo justifique conforme a las Directrices para la resolución de las solicitudes de cambio de grupos docentes de la Escuela de Ingeniería Informática.",
+      "Contra la presente resolución podrá presentarse reclamación ante la Dirección del Centro, a través de la Sede Electrónica de la ULPGC (Instancia General), desde el 4 hasta el 11 de noviembre de 2026.",
+      "Las Palmas de Gran Canaria, a 3 de noviembre de 2026.",
+      "EL/LA SUBDIRECTOR/A DE ORDENACIÓN ACADÉMICA DE LA ESCUELA DE INGENIERÍA INFORMÁTICA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

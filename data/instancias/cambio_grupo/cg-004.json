@@ -1,0 +1,83 @@
+{
+  "id": "cg-004",
+  "tramite": "cambio_grupo",
+  "ficha_sia": "2890472",
+  "variante_de": "cg-001",
+  "notas_caso": "Variante de cg-001: misma solicitud, justificada y con plazas, pero presentada el 20 de octubre de 2026, después del plazo (11 sep-16 oct). Las Directrices exigen usar los plazos establecidos: se inadmite sin estudiar el fondo.",
+  "instancia": {
+    "procedimiento": "Cambio de turno o grupo (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-10-20",
+    "solicitante": {
+      "nombre": "Lucía Betancor Ramos",
+      "dni": "77777777B",
+      "correo": "lucia.betancor108@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Subdirección de Ordenación Académica de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de cambio de turno o grupo",
+    "expone": "Que soy estudiante de segundo curso del Grado en Ingeniería Informática y trabajo con contrato de lunes a viernes de 8:00 a 14:00 horas, por lo que no puedo asistir a las clases del turno de mañana.",
+    "solicita": "Que se me cambie del grupo de mañana al de tarde en Métodos Numéricos, Estructura de Datos y Programación y Base de Datos I.",
+    "documentacion": [
+      {
+        "nombre": "Formulario de solicitud de cambio de grupo de la EII",
+        "contenido": "Cambio del grupo de mañana al grupo de tarde (teoría y prácticas) en Métodos Numéricos, Estructura de Datos y Programación y Base de Datos I."
+      },
+      {
+        "nombre": "Horario marcando las asignaturas afectadas",
+        "contenido": "Horario del segundo curso del GII con las tres asignaturas marcadas en el turno de mañana."
+      },
+      {
+        "nombre": "Contrato de trabajo",
+        "contenido": "Contrato de trabajo de doña Lucía Betancor Ramos con horario de lunes a viernes de 8:00 a 14:00 horas, del 1 de septiembre de 2026 al 31 de agosto de 2027."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "curso": 2,
+    "cambios_solicitados": [
+      {"asignatura": "Métodos Numéricos", "grupo_actual": "mañana", "grupo_solicitado": "tarde", "plazas_libres_destino": 5},
+      {"asignatura": "Estructura de Datos y Programación", "grupo_actual": "mañana", "grupo_solicitado": "tarde", "plazas_libres_destino": 3},
+      {"asignatura": "Base de Datos I", "grupo_actual": "mañana", "grupo_solicitado": "tarde", "plazas_libres_destino": 4}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "inadmitir",
+    "norma_aplicable": {
+      "normas": [
+        "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023)",
+        "Resolución de 4 de noviembre de 2024 del Subdirector de Ordenación Académica de la EII relativa a las solicitudes de cambio de grupo (motivos de denegación)",
+        "Plazo del trámite de la sede para el primer semestre 2026/2027: del 11 de septiembre al 16 de octubre de 2026"
+      ],
+      "motivo": "Las Directrices de 2023 siguen vigentes; el plazo es el publicado en la ficha de la sede."
+    },
+    "organo": "Subdirección de Ordenación Académica de la Escuela de Ingeniería Informática",
+    "recurso": "Reclamación ante la Dirección del Centro por la Sede Electrónica (Instancia General), del 4 al 11 de noviembre de 2026 (plazo que abre la resolución, como en la de 4 de noviembre de 2024)",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023); ficha del trámite en la sede", "cumple": false, "motivo": "Presentada el 20 de octubre de 2026; el plazo terminó el 16 de octubre."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 3 DE NOVIEMBRE DE 2026 DE LA SUBDIRECCIÓN DE ORDENACIÓN ACADÉMICA DE LA ESCUELA DE INGENIERÍA INFORMÁTICA RELATIVA A LA SOLICITUD DE CAMBIO DE GRUPO DE DOÑA LUCÍA BETANCOR RAMOS",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por doña Lucía Betancor Ramos, con DNI 77777777B, con fecha 20 de octubre de 2026, mediante la que solicita el cambio del grupo de mañana al de tarde en las asignaturas Métodos Numéricos, Estructura de Datos y Programación y Base de Datos I del Grado en Ingeniería Informática, resultan los siguientes",
+      "HECHOS",
+      "Primero.- La Escuela de Ingeniería Informática abrió el plazo de solicitudes de cambio de turno o grupo del primer semestre del curso 2026/2027 del 11 de septiembre al 16 de octubre de 2026, a través de la Sede Electrónica.",
+      "Segundo.- La solicitud de la interesada se presentó el 20 de octubre de 2026.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- Las Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática, aprobadas por la Junta de Escuela el 24 de julio de 2023, establecen que las solicitudes deberán realizarse utilizando los procedimientos y plazos explícita y públicamente establecidos y comunicados por la Escuela a comienzos de cada semestre.",
+      "Segundo.- La solicitud se presentó fuera del plazo establecido para el primer semestre, que terminó el 16 de octubre de 2026, por lo que no procede estudiar el fondo de la petición.",
+      "En virtud de lo expuesto, esta Subdirección, responsable de la aplicación y priorización de los criterios establecidos en las citadas Directrices,",
+      "RESUELVE:",
+      "Inadmitir por extemporánea la solicitud de cambio de grupo presentada por doña Lucía Betancor Ramos el 20 de octubre de 2026.",
+      "Contra la presente resolución podrá presentarse reclamación ante la Dirección del Centro, a través de la Sede Electrónica de la ULPGC (Instancia General), desde el 4 hasta el 11 de noviembre de 2026.",
+      "Las Palmas de Gran Canaria, a 3 de noviembre de 2026.",
+      "EL/LA SUBDIRECTOR/A DE ORDENACIÓN ACADÉMICA DE LA ESCUELA DE INGENIERÍA INFORMÁTICA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

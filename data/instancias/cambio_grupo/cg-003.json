@@ -1,0 +1,87 @@
+{
+  "id": "cg-003",
+  "tramite": "cambio_grupo",
+  "ficha_sia": "2890472",
+  "notas_caso": "Situación contemplada y acreditada (cursa Enseñanzas Profesionales de Música, estudios oficiales, con horario incompatible), pero uno de los dos grupos de destino no tiene plazas. Como las solicitudes se conceden o deniegan en bloque (motivo 3 de la resolución de 2024), se deniega entera: no se concede solo el cambio que tiene plaza.",
+  "instancia": {
+    "procedimiento": "Cambio de turno o grupo (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-10-05",
+    "solicitante": {
+      "nombre": "Nerea Alemán Ortega",
+      "dni": "99999999R",
+      "correo": "nerea.aleman110@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Subdirección de Ordenación Académica de la Escuela de Ingeniería Informática",
+    "asunto": "Solicitud de cambio de turno o grupo",
+    "expone": "Que soy estudiante de segundo curso del Grado en Ingeniería Informática y curso también Enseñanzas Profesionales de Música en el Conservatorio Profesional, con clases los martes y jueves de 16:00 a 19:00 horas, que coinciden con mis grupos de tarde.",
+    "solicita": "Que se me cambie del grupo de tarde al de mañana en Base de Datos I (prácticas de laboratorio) y en Métodos Numéricos (teoría).",
+    "documentacion": [
+      {
+        "nombre": "Formulario de solicitud de cambio de grupo de la EII",
+        "contenido": "Cambio del grupo de tarde al de mañana en Base de Datos I (prácticas de laboratorio) y Métodos Numéricos (teoría)."
+      },
+      {
+        "nombre": "Horario marcando las asignaturas afectadas",
+        "contenido": "Horario del segundo curso del GII con las dos asignaturas marcadas los martes y jueves por la tarde."
+      },
+      {
+        "nombre": "Justificante de matrícula y horario del Conservatorio Profesional de Música",
+        "contenido": "Matrícula en 5.º de Enseñanzas Profesionales de Música en el curso 2026/2027, con clases los martes y jueves de 16:00 a 19:00 horas."
+      }
+    ],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "curso": 2,
+    "cambios_solicitados": [
+      {"asignatura": "Base de Datos I", "grupo": "prácticas de laboratorio", "grupo_actual": "tarde", "grupo_solicitado": "mañana", "plazas_libres_destino": 0},
+      {"asignatura": "Métodos Numéricos", "grupo": "teoría", "grupo_actual": "tarde", "grupo_solicitado": "mañana", "plazas_libres_destino": 3}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "desestimar",
+    "norma_aplicable": {
+      "normas": [
+        "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023)",
+        "Resolución de 4 de noviembre de 2024 del Subdirector de Ordenación Académica de la EII relativa a las solicitudes de cambio de grupo (motivos de denegación)",
+        "Plazo del trámite de la sede para el primer semestre 2026/2027: del 11 de septiembre al 16 de octubre de 2026"
+      ],
+      "motivo": "Las Directrices de 2023 siguen vigentes; el plazo es el publicado en la ficha de la sede."
+    },
+    "organo": "Subdirección de Ordenación Académica de la Escuela de Ingeniería Informática",
+    "recurso": "Reclamación ante la Dirección del Centro por la Sede Electrónica (Instancia General), del 4 al 11 de noviembre de 2026 (plazo que abre la resolución, como en la de 4 de noviembre de 2024)",
+    "requisitos": [
+      {"requisito": "Plazo de presentación", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023); ficha del trámite en la sede", "cumple": true, "motivo": "Presentada el 5 de octubre de 2026, dentro del plazo del 11 de septiembre al 16 de octubre."},
+      {"requisito": "Situación contemplada", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023)", "cumple": true, "motivo": "Cursa otros estudios oficiales con horario incompatible."},
+      {"requisito": "Situación acreditada", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023)", "cumple": true, "motivo": "Aporta el justificante de matrícula del conservatorio y su horario."},
+      {"requisito": "Cambio especificado con claridad", "norma": "Resolución de 4 de noviembre de 2024 del Subdirector de Ordenación Académica de la EII relativa a las solicitudes de cambio de grupo (motivos de denegación)", "cumple": true, "motivo": "Indica asignaturas, grupo actual y grupo de destino."},
+      {"requisito": "Vacantes en todos los grupos de destino", "norma": "Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática (Junta de Escuela de 24 de julio de 2023); Resolución de 4 de noviembre de 2024 del Subdirector de Ordenación Académica de la EII relativa a las solicitudes de cambio de grupo (motivos de denegación)", "cumple": false, "motivo": "El grupo de mañana de prácticas de laboratorio de Base de Datos I no tiene plazas; las solicitudes se conceden o deniegan en bloque."}
+    ],
+    "resolucion": [
+      "RESOLUCIÓN DE 3 DE NOVIEMBRE DE 2026 DE LA SUBDIRECCIÓN DE ORDENACIÓN ACADÉMICA DE LA ESCUELA DE INGENIERÍA INFORMÁTICA RELATIVA A LA SOLICITUD DE CAMBIO DE GRUPO DE DOÑA NEREA ALEMÁN ORTEGA",
+      "Vista la instancia presentada a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria por doña Nerea Alemán Ortega, con DNI 99999999R, con fecha 5 de octubre de 2026, mediante la que solicita el cambio del grupo de tarde al de mañana en las asignaturas Base de Datos I (prácticas de laboratorio) y Métodos Numéricos (teoría) del Grado en Ingeniería Informática, resultan los siguientes",
+      "HECHOS",
+      "Primero.- La Escuela de Ingeniería Informática abrió el plazo de solicitudes de cambio de turno o grupo del primer semestre del curso 2026/2027 del 11 de septiembre al 16 de octubre de 2026, a través de la Sede Electrónica. La solicitud se presentó el 5 de octubre de 2026.",
+      "Segundo.- La interesada, estudiante de segundo curso, cursa Enseñanzas Profesionales de Música en el Conservatorio Profesional, con clases los martes y jueves de 16:00 a 19:00 horas, lo que acredita con el justificante de matrícula y el horario del conservatorio.",
+      "Tercero.- El grupo de mañana de prácticas de laboratorio de Base de Datos I no tiene plazas libres; el grupo de mañana de teoría de Métodos Numéricos tiene tres.",
+      "FUNDAMENTOS DE DERECHO",
+      "Primero.- Las Directrices para la resolución de las solicitudes de cambio de grupos docentes en las titulaciones de la Escuela de Ingeniería Informática, aprobadas por la Junta de Escuela el 24 de julio de 2023, solo admiten a estudio las solicitudes que se encuentren en alguna de las situaciones que enumeran: necesidades específicas de apoyo educativo, mantener a la unidad familiar con hijos menores de seis años, tener contrato de trabajo oficial, ser deportista de alto nivel o alto rendimiento, cursar otros estudios oficiales, tener restricciones de horarios de transporte público y, para los cursos distintos del primero, el solapamiento de horarios por cursar asignaturas de cursos diferentes. Cada situación debe acreditarse con la documentación que se indica, y cualquier solicitud no contemplada o no justificada de forma conveniente será desestimada.",
+      "Segundo.- Según las mismas Directrices, las solicitudes se concederán siempre y cuando haya vacantes en los turnos y grupos solicitados, y corresponde a la Subdirección de Ordenación Académica la aplicación y priorización de los criterios.",
+      "Tercero.- La interesada se encuentra en una de las situaciones previstas, cursar otros estudios oficiales con horario incompatible, y la acredita. Sin embargo, uno de los grupos de destino solicitados no tiene capacidad para admitir más estudiantes y, como las solicitudes se conceden o deniegan en bloque, según el criterio aplicado por esta Subdirección en su Resolución de 4 de noviembre de 2024, procede denegar la solicitud.",
+      "En virtud de lo expuesto, esta Subdirección, responsable de la aplicación y priorización de los criterios establecidos en las citadas Directrices,",
+      "RESUELVE:",
+      "Denegar a doña Nerea Alemán Ortega el cambio de grupo solicitado en las asignaturas Base de Datos I y Métodos Numéricos, por no haber plazas libres en el grupo de mañana de prácticas de laboratorio de Base de Datos I.",
+      "Contra la presente resolución podrá presentarse reclamación ante la Dirección del Centro, a través de la Sede Electrónica de la ULPGC (Instancia General), desde el 4 hasta el 11 de noviembre de 2026.",
+      "Las Palmas de Gran Canaria, a 3 de noviembre de 2026.",
+      "EL/LA SUBDIRECTOR/A DE ORDENACIÓN ACADÉMICA DE LA ESCUELA DE INGENIERÍA INFORMÁTICA",
+      "(firma)",
+      "[Nombre y apellidos]"
+    ]
+  }
+}

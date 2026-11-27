@@ -1,0 +1,81 @@
+{
+  "id": "sep-002",
+  "tramite": "septima_convocatoria",
+  "ficha_sia": "2897040",
+  "variante_de": "sep-001",
+  "notas_caso": "Variante de sep-001 sin motivación ni documentos: solo dice que ha agotado las seis convocatorias. El art. 10.3 exige una petición motivada (y el art. 66.1.c de la Ley 39/2015, hechos y razones): la Administración del Edificio, que tramita el procedimiento en la sede, requiere la mejora antes de enviarla a la Comisión. Modelo de requerimiento del Manual; acto de trámite sin recursos.",
+  "instancia": {
+    "procedimiento": "Solicitud de séptima convocatoria (Administración del Edificio de Informática y Matemáticas)",
+    "registro": "Sede Electrónica de la ULPGC",
+    "fecha_presentacion": "2026-09-10",
+    "solicitante": {
+      "nombre": "Andrea Santana Vega",
+      "dni": "55555555K",
+      "correo": "andrea.santana106@alu.ulpgc.es",
+      "telefono": "600000000",
+      "notificacion": "Correo electrónico"
+    },
+    "organo_destinatario": "Comisión de Permanencia de la ULPGC",
+    "asunto": "Solicitud de séptima convocatoria",
+    "expone": "Que he agotado las seis convocatorias de la asignatura Estructura de Computadores.",
+    "solicita": "Que se me autorice una séptima convocatoria de la asignatura Estructura de Computadores en el curso 2026/2027.",
+    "documentacion": [],
+    "firmada": true
+  },
+  "expediente": {
+    "titulacion": "Grado en Ingeniería Informática (Plan 41)",
+    "centro": "Escuela de Ingeniería Informática",
+    "dedicacion": "Tiempo completo",
+    "creditos_titulacion": 240,
+    "creditos_superados": 210,
+    "nota_media": 6.3,
+    "pendientes": [
+      {
+        "asignatura": "Estructura de Computadores",
+        "codigo": "40959",
+        "curso": 1,
+        "ects": 6,
+        "convocatorias": [
+          {"curso": "2023/2024", "convocatoria": "ordinaria", "nota": 2.0},
+          {"curso": "2023/2024", "convocatoria": "extraordinaria", "nota": 2.8},
+          {"curso": "2024/2025", "convocatoria": "ordinaria", "nota": 3.1},
+          {"curso": "2024/2025", "convocatoria": "extraordinaria", "nota": 3.5},
+          {"curso": "2025/2026", "convocatoria": "ordinaria", "nota": 4.0},
+          {"curso": "2025/2026", "convocatoria": "extraordinaria", "nota": 4.6}
+        ]
+      },
+      {"asignatura": "Prácticas Externas", "curso": 4, "ects": 12, "convocatorias": []},
+      {"asignatura": "Trabajo Fin de Grado", "curso": 4, "ects": 12, "convocatorias": []}
+    ]
+  },
+  "informes": [],
+  "gold": {
+    "decision": "requerir_subsanacion",
+    "norma_aplicable": {
+      "normas": [
+        "Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC (aprobadas el 17 de octubre de 2024, modificadas por el Pleno del Consejo Social el 2 de abril de 2025): art. 10.3",
+        "Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas (arts. 66 y 68)"
+      ],
+      "motivo": "Texto vigente desde la modificación de 2 de abril de 2025; el texto original de 2024 no se aplica."
+    },
+    "organo": "Administración del Edificio de Informática y Matemáticas, que tramita el procedimiento en la sede",
+    "recurso": "Ninguno: el requerimiento es un acto de trámite que no decide el fondo ni impide continuar el procedimiento (art. 112.1 de la Ley 39/2015).",
+    "requisitos": [
+      {"requisito": "Seis convocatorias agotadas", "norma": "Arts. 10.1 y 10.3 y disposición transitoria tercera de las Normas de Progreso y Permanencia", "cumple": true, "motivo": "Seis convocatorias calificadas."},
+      {"requisito": "Petición motivada", "norma": "Art. 10.3 de las Normas de Progreso y Permanencia; art. 66.1.c de la Ley 39/2015", "cumple": false, "motivo": "La solicitud no expone ninguna razón ni aporta documentación."}
+    ],
+    "resolucion": [
+      "REQUERIMIENTO DE SUBSANACIÓN DE DEFECTOS EN LA SOLICITUD DE SÉPTIMA CONVOCATORIA DE LA ASIGNATURA ESTRUCTURA DE COMPUTADORES DEL GRADO EN INGENIERÍA INFORMÁTICA",
+      "Esta Administración de Edificio, en relación con la solicitud presentada por usted con fecha 10 de septiembre de 2026 a través de la Sede Electrónica de la Universidad de Las Palmas de Gran Canaria, relativa a la autorización de una séptima convocatoria de la asignatura Estructura de Computadores (40959) del Grado en Ingeniería Informática, le requiere, de acuerdo con lo previsto en el artículo 68.1 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas (BOE de 2 de octubre), para que en el plazo de diez días hábiles contados a partir del día siguiente al de la recepción de este requerimiento, proceda a subsanar los defectos existentes en su solicitud, debiendo para ello:",
+      "1) Motivar su petición, exponiendo las razones en que la funda, como exigen el artículo 10.3 de las Normas de Progreso y Permanencia en las Titulaciones Oficiales de Grado y Máster de la ULPGC y el artículo 66.1.c) de la Ley 39/2015.",
+      "2) Aportar, en su caso, la documentación que justifique dicha motivación.",
+      "De no producirse la subsanación en el plazo mencionado, se entenderá que ha desistido de su petición y se procederá a su archivo sin más trámite, previa resolución en tal sentido, dictada en los términos previstos en el artículo 21 de la Ley 39/2015.",
+      "Lo que se le notifica en cumplimiento del artículo 40 de la mencionada Ley 39/2015.",
+      "Las Palmas de Gran Canaria, a 14 de septiembre de 2026.",
+      "EL/LA ADMINISTRADOR/A DEL EDIFICIO DE INFORMÁTICA Y MATEMÁTICAS",
+      "(firma y sello)",
+      "[Nombre y apellidos]",
+      "D.ª ANDREA SANTANA VEGA"
+    ]
+  }
+}
