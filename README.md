@@ -82,6 +82,7 @@ mostrar el resumen; `--rejuzgar FICHERO` repite solo el juicio).
 | Ruta | Qué es |
 |---|---|
 | `scripts/descargar_normativa.py` | Descarga la normativa de la ULPGC y la EII (respeta `robots.txt`) |
+| `scripts/descargar_plantillas.py` | Descarga los formularios de instancia y el Manual de normalización (modelos de resolución) a `data/plantillas/` |
 | `scripts/procesar_normativa.py` | Extrae el texto de los PDF y lo divide por artículos |
 | `scripts/indexar_normativa.py` | Construye los índices BM25 y de embeddings |
 | `scripts/evaluar_busqueda.py` | Mide la búsqueda con el banco de preguntas |
