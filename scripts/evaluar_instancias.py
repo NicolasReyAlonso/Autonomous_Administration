@@ -25,6 +25,8 @@ un contexto de 24576 o más):
     python scripts/evaluar_instancias.py --juez google/gemma-4-e4b
     python scripts/evaluar_instancias.py --rejuzgar outputs/instancias/X.jsonl --juez otro-modelo
     python scripts/evaluar_instancias.py --resumen outputs/instancias/X.jsonl
+    python scripts/evaluar_instancias.py --local google/gemma-4-E2B-it                 # transformers, sin LM Studio
+    python scripts/evaluar_instancias.py --local google/gemma-4-E2B-it --adaptador outputs/adapters/resolver-e2b
 
 Sin --juez no hay fase 2: en el PC (8 GB) Gemma 4 12B no carga, y con el mismo E4B de juez
 tiende a darse la razón. Las métricas de la fase 1 no dependen de ningún juez.
@@ -269,6 +271,9 @@ def main() -> None:
     ap.add_argument("--sin-pensar", action="store_true", help="sin razonamiento previo")
     ap.add_argument("--url", default=URL_POR_DEFECTO, help="URL de la API compatible con OpenAI")
     ap.add_argument("--modelo", default=MODELO_LLM, help="modelo que resuelve (por defecto Gemma 4 E4B)")
+    ap.add_argument("--local", metavar="MODELO_HF", help="resolver con transformers en local (rag/local.py), sin "
+                    "LM Studio; sin razonamiento previo")
+    ap.add_argument("--adaptador", type=Path, help="adaptador LoRA para --local")
     ap.add_argument("--juez", help="modelo juez para la fase 2 (sin él, no hay fase 2)")
     ap.add_argument("--rejuzgar", type=Path, metavar="JSONL", help="juzga resoluciones ya guardadas (con --juez)")
     ap.add_argument("--resumen", type=Path, metavar="JSONL", help="solo muestra el resumen de un fichero")
@@ -293,8 +298,13 @@ def main() -> None:
                         and (not args.casos or c["id"] in args.casos)]
             if not elegidos:
                 sys.exit("No hay instancias con gold que cumplan los filtros")
-            resolver = Resolver.cargar(args.url, args.modelo, pensar=not args.sin_pensar)
-            modo = "sin-pensar" if args.sin_pensar else "pensar"
+            if args.local:
+                from rag.busqueda import Buscador
+                from rag.local import ClienteLocal
+                resolver = Resolver(Buscador.cargar(), ClienteLocal(args.local, args.adaptador), pensar=False)
+            else:
+                resolver = Resolver.cargar(args.url, args.modelo, pensar=not args.sin_pensar)
+            modo = "sin-pensar" if not resolver.pensar else "pensar"
             ruta = SALIDA / f"{datetime.now():%Y%m%d-%H%M}_{resolver.llm.modelo.replace('/', '_')}_{modo}.jsonl"
             print(f"Fase 1: {resolver.llm.modelo} resuelve {len(elegidos)} instancias ({modo})")
             registros = resolver_casos(resolver, elegidos, ruta)

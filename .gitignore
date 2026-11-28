@@ -34,3 +34,7 @@ runs/
 data/plantillas/aeim_2017/*
 data/plantillas/eii/*
 data/plantillas/ulpgc_normalizados/*
+
+# Instancias sintéticas y ejemplos de entrenamiento (se regeneran con scripts/generar_instancias.py
+# y scripts/preparar_entrenamiento.py; misma semilla, mismo resultado)
+data/sinteticas/
